@@ -1,0 +1,106 @@
+<resources>
+    <string name="app_name">Health Monitor</string>
+
+    <string name="article_heading_profile">Thông tin cá nhân</string>
+    <string name="article_heading_sleep">Giấc ngủ</string>
+    <string name="article_heading_water">Nước</string>
+    <string name="article_heading_weight">Cân nặng</string>
+    <string name="article_heading_bmi">BMI</string>
+
+    <string name="username">Eddle Brock</string>
+    <string name="btn_change_profile">Sửa</string>
+    <string name="desc">desc</string>
+    <string name="lbl_du_lieu">Dữ liệu</string>
+    <string name="lbl_bmi">BMI</string>
+    <string name="content_bmi">19</string>
+    <string name="date_bmi">14/03/2022</string>
+    <string name="lbl_weight">Cân nặng</string>
+    <string name="content_weight">45kg</string>
+    <string name="date_weight">14/03/2022</string>
+    <string name="lbl_water">Nước</string>
+    <string name="content_water">8/10 cốc</string>
+    <string name="date_water">14/03/2022</string>
+    <string name="lbl_sleep">Giấc ngủ</string>
+    <string name="content_sleep">8 giờ 30 phút</string>
+    <string name="date_sleep">14/03/2022</string>
+    <string name="title_home">Health Monitor</string>
+    <string name="thoi_gian_di_ngu">Thời gian đi ngủ:</string>
+    <string name="thoi_gian_thuc_day">Thời gian thức dậy:</string>
+    <string name="nuoc_can_uong">Số nước cần uống:</string>
+    <string name="nuoc_da_uong">Số nước đã uống:</string>
+    <string name="enter_water_needed">8</string>
+    <string name="enter_water_drinked">4</string>
+    <string name="weight">weight</string>
+    <string name="water">water</string>
+    <string name="add">add</string>
+    <string name="minus">minus</string>
+    <string name="enter_sleepTime">22:00</string>
+    <string name="enter_wakeTime">6:00</string>
+    <string name="sleep">sleep</string>
+    <string name="glass">cốc</string>
+    <string name="can_nang">Cân nặng:</string>
+    <string name="kg">kg</string>
+    <string name="enter_weight">55</string>
+
+    <string name="BMI">BMI:</string>
+    <string name="trang_thai">Trạng thái:</string>
+    <string name="bmi">BMI</string>
+    <string name="kq_bmi">19</string>
+    <string name="kq_trangthai">Cân đối</string>
+    <string name="img_bmi">img_bmi</string>
+    <string name="arrow">arrow</string>
+
+    //dang nhap
+    <string name="tai_khoan">Tài khoản</string>
+    <string name="dang_nhap">Health Monitor</string>
+    <string name="btn_dangnhap">Đăng nhập</string>
+    <string name="chua_co_tai_khoan">Chưa có tài khoản?</string>
+    <string name="tv_dangki">Đăng kí</string>
+    <string name="mat_khau">Mật khẩu</string>
+
+    <string name="thong_tin_ca_nhan">Thông tin cá nhân</string>
+    <string name="tv_gioitinh">Giới tính:</string>
+    <string name="tv_cannang">Cân nặng (kg):</string>
+    <string name="tv_email">Email:</string>
+    <string name="tv_name">Tên:</string>
+    <string name="tv_tuoi">Tuổi:</string>
+    <string name="tv_sdt">Số điện thoại:</string>
+    <string name="tv_chieucao">Chiều cao (cm):</string>
+    <string name="btn_huy">Hủy</string>
+    <string name="btn_luu">Lưu</string>
+    <string name="rad_nu">Nữ</string>
+    <string name="rad_nam">Nam</string>
+
+    //dang ki
+    <string name="ten">Tên</string>
+    <string name="dien_thoai">Số điện thoại</string>
+    <string name="tuoi">Tuổi</string>
+    <string name="nam">Nam</string>
+    <string name="nu">Nữ</string>
+    <string name="register_can_nang">Cân nặng</string>
+    <string name="chieu_cao">Chiều cao</string>
+    <string name="email">Email</string>
+    <string name="gioi_tinh">Giới tính</string>
+    <string name="dang_ki">Đăng kí</string>
+    <string name="gui">Gửi</string>
+    <string name="lbl_password">Mật khẩu</string>
+    <string name="article_heading_register">Đăng ký</string>
+    <string name="hint_sleep_time">22:00</string>
+    <string name="hint_wake_time">6:00</string>
+    <string name="hint_water_needed">8</string>
+    <string name="hint_weight">55.5</string>
+    <string name="hint_name">Nguyễn Văn A</string>
+    <string name="hint_email">nguyenvana@gmail.com</string>
+    <string name="hint_phone">0999888999</string>
+    <string name="hint_password">Nhập mật khẩu</string>
+    <string name="lbl_confirmPassw">Xác nhận</string>
+    <string name="hint_confirm_password">Xác nhận lại mật khẩu</string>
+    <string name="hint_account">Số điện thoại</string>
+    <string name="name_value">Nguyễn Văn A</string>
+    <string name="email_value">nguyenvana@gmail.com</string>
+    <string name="phone_value">0999888999</string>
+    <string name="age_value">21</string>
+    <string name="height_value">175</string>
+    <string name="weight_value">70</string>
+    <string name="btn_update">Cập nhật</string>
+</resources>

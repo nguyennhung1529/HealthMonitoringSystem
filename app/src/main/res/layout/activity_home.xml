@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/layout_home"
+    tools:context=".HomeActivity" >
+
+    <ScrollView
+        android:id="@+id/scrollLayoutHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/layout_home_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_title_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_home"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="@dimen/fontsize_h1"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_home"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:contentDescription="@string/desc"
+                        android:rotation="10"
+                        app:srcCompat="@drawable/img_home" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_home_bmi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/layout_bg_lv1"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingVertical="28dp">
+
+                <TextView
+                    android:id="@+id/tv_home_bmi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="120dp"
+                    android:text="@string/lbl_bmi"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fontsize_content_big"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_home_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/layout_bg_lv2"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingVertical="28dp">
+
+                <TextView
+                    android:id="@+id/tv_home_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="120dp"
+                    android:text="@string/lbl_weight"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fontsize_content_big"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_home_water"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/layout_bg_lv3"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingVertical="28dp">
+
+                <TextView
+                    android:id="@+id/tv_home_water"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="120dp"
+                    android:text="@string/lbl_water"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fontsize_content_big"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_home_sleep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/layout_bg_lv4"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingVertical="28dp">
+
+                <TextView
+                    android:id="@+id/tv_home_sleep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="120dp"
+                    android:text="@string/lbl_sleep"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fontsize_content_big"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:paddingTop="8dp"
+        android:paddingHorizontal="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_btn_notice"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/desc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/btn_notice" />
+
+        <ImageView
+            android:id="@+id/iv_btn_home"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/desc"
+            app:layout_constraintEnd_toStartOf="@+id/iv_btn_user"
+            app:layout_constraintStart_toEndOf="@+id/iv_btn_notice"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/btn_home" />
+
+        <ImageView
+            android:id="@+id/iv_btn_user"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/desc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/btn_user" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

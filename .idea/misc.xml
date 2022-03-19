@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/1.Code/6.Android/AndroidStudioProjects/HealthMonitor/app/src/main/res/drawable/layout_bg.xml" value="0.536" />
+        <entry key="..\:/1.Code/6.Android/AndroidStudioProjects/HealthMonitor/app/src/main/res/drawable/layout_bg_2.xml" value="0.6" />
+        <entry key="..\:/1.Code/6.Android/AndroidStudioProjects/HealthMonitor/app/src/main/res/drawable/layout_bg_3.xml" value="0.23177083333333334" />
+        <entry key="..\:/1.Code/6.Android/AndroidStudioProjects/HealthMonitor/app/src/main/res/drawable/layout_bg_lv1.xml" value="0.72" />
+        <entry key="..\:/1.Code/6.Android/AndroidStudioProjects/HealthMonitor/app/src/main/res/drawable/layout_bg_lv2.xml" value="0.6" />
+        <entry key="..\:/1.Code/6.Android/AndroidStudioProjects/HealthMonitor/app/src/main/res/drawable/layout_bg_lv3.xml" value="0.72" />
+        <entry key="..\:/1.Code/6.Android/AndroidStudioProjects/HealthMonitor/app/src/main/res/drawable/layout_bg_lv4.xml" value="0.536" />
+        <entry key="..\:/1.Code/6.Android/AndroidStudioProjects/HealthMonitor/app/src/main/res/drawable/my_button_bg.xml" value="0.536" />
+        <entry key="..\:/1.Code/6.Android/AndroidStudioProjects/HealthMonitor/app/src/main/res/layout/activity_bmi.xml" value="0.264" />
+        <entry key="..\:/1.Code/6.Android/AndroidStudioProjects/HealthMonitor/app/src/main/res/layout/activity_home.xml" value="0.2" />
+        <entry key="..\:/1.Code/6.Android/AndroidStudioProjects/HealthMonitor/app/src/main/res/layout/activity_login.xml" value="0.4" />
+        <entry key="..\:/1.Code/6.Android/AndroidStudioProjects/HealthMonitor/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/1.Code/6.Android/AndroidStudioProjects/HealthMonitor/app/src/main/res/layout/activity_profile.xml" value="0.4" />
+        <entry key="..\:/1.Code/6.Android/AndroidStudioProjects/HealthMonitor/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/1.Code/6.Android/AndroidStudioProjects/HealthMonitor/app/src/main/res/layout/activity_sleep.xml" value="0.2" />
+        <entry key="..\:/1.Code/6.Android/AndroidStudioProjects/HealthMonitor/app/src/main/res/layout/activity_water.xml" value="0.2" />
+        <entry key="..\:/1.Code/6.Android/AndroidStudioProjects/HealthMonitor/app/src/main/res/layout/activity_weight.xml" value="0.4775888717156105" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

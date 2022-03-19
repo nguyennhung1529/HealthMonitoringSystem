@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <LinearLayout
+        android:id="@+id/layout_article_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/desc"
+                app:srcCompat="@drawable/img_back_white" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/article_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/article_heading_register"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/fontsize_article_heading"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_register"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="46dp"
+        android:contentDescription="@string/desc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_article_heading"
+        app:srcCompat="@drawable/img_register" />
+
+    <TextView
+        android:id="@+id/lbl_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="46dp"
+        android:text="@string/ten"
+        android:textSize="@dimen/fontsize_content_normal"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_register" />
+
+    <EditText
+        android:id="@+id/content_name"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="-10dp"
+        android:ems="10"
+        android:autofillHints="enter name"
+        android:hint="@string/hint_name"
+        android:inputType="textPersonName"
+        android:labelFor="@+id/lbl_name"
+        android:textSize="@dimen/fontsize_content_normal"
+        app:layout_constraintBottom_toBottomOf="@+id/lbl_name"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/lbl_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/email"
+        android:textSize="@dimen/fontsize_content_normal"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_name" />
+
+    <EditText
+        android:id="@+id/content_email"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="-10dp"
+        android:ems="10"
+        android:autofillHints="enter email"
+        android:hint="@string/hint_email"
+        android:inputType="textEmailAddress"
+        android:labelFor="@+id/content_email"
+        android:textSize="@dimen/fontsize_content_normal"
+        app:layout_constraintBottom_toBottomOf="@+id/lbl_email"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/lbl_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/dien_thoai"
+        android:textSize="@dimen/fontsize_content_normal"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_email" />
+
+    <EditText
+        android:id="@+id/content_phone"
+        android:layout_width="250sp"
+        android:layout_height="50sp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="-10dp"
+        android:ems="10"
+        android:autofillHints="enter phone"
+        android:hint="@string/hint_phone"
+        android:textSize="@dimen/fontsize_content_normal"
+        android:inputType="phone"
+        android:labelFor="@+id/content_phone"
+        app:layout_constraintBottom_toBottomOf="@+id/lbl_phone"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/lbl_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/lbl_password"
+        android:textStyle="normal"
+        android:textSize="@dimen/fontsize_content_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_phone" />
+
+    <EditText
+        android:id="@+id/content_password"
+        android:layout_width="250sp"
+        android:layout_height="50sp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="-10dp"
+        android:ems="10"
+        android:autofillHints="enter password"
+        android:hint="@string/hint_password"
+        android:inputType="textPassword"
+        android:labelFor="@+id/content_password"
+        android:textSize="@dimen/fontsize_content_normal"
+        app:layout_constraintBottom_toBottomOf="@+id/lbl_password"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/lbl_confirmPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/lbl_confirmPassw"
+        android:textStyle="normal"
+        android:textSize="@dimen/fontsize_content_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_password" />
+
+    <EditText
+        android:id="@+id/content_confirmPassword"
+        android:layout_width="250sp"
+        android:layout_height="50sp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="-10dp"
+        android:ems="10"
+        android:autofillHints="enter password confirm"
+        android:hint="@string/hint_confirm_password"
+        android:inputType="textPassword"
+        android:labelFor="@+id/content_confirmPassword"
+        android:textSize="@dimen/fontsize_content_normal"
+        app:layout_constraintBottom_toBottomOf="@+id/lbl_confirmPassword"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="?attr/colorPrimary"
+        android:text="@string/gui"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
