@@ -125,249 +125,257 @@
                 android:paddingHorizontal="32dp"
                 android:paddingVertical="16dp"
                 android:text="@string/lbl_du_lieu" />
-
-            <LinearLayout
-                android:id="@+id/layout_bmi"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:background="@drawable/layout_bg_2"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:onClick="navigation"
-                android:paddingVertical="16sp">
-
-                <ImageView
-                    android:id="@+id/iv_bmi"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:contentDescription="@string/desc"
-                    app:srcCompat="@drawable/img_bmi" />
-
+                android:layout_height="match_parent">
                 <LinearLayout
-                    android:id="@+id/layout_content_bmi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lbl_bmi"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/fontsize_content_big"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/content_bmi"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/fontsize_content_normal" />
-                </LinearLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/layout_date_bmi"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/tv_date_bmi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="24dp"
-                        android:text="@string/date_bmi"
-                        android:textSize="@dimen/fontsize_content_small"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout_weight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:background="@drawable/layout_bg_2"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:onClick="navigation"
-                android:layout_marginTop="8dp"
-                android:paddingVertical="16sp">
-
-                <ImageView
-                    android:id="@+id/iv_weight"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:contentDescription="@string/desc"
-                    app:srcCompat="@drawable/img_balance" />
-
-                <LinearLayout
-                    android:id="@+id/layout_content_weight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:id="@+id/layout_bmi"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/lbl_weight"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/fontsize_content_big"
-                        android:textStyle="bold" />
+                        android:layout_marginHorizontal="8dp"
+                        android:background="@drawable/layout_bg_2"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:onClick="navigation"
+                        android:paddingVertical="16sp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                        <ImageView
+                            android:id="@+id/iv_bmi"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:contentDescription="@string/desc"
+                            app:srcCompat="@drawable/img_bmi" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_content_bmi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/lbl_bmi"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fontsize_content_big"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/content_bmi"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fontsize_content_normal" />
+                        </LinearLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/layout_date_bmi"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/tv_date_bmi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="24dp"
+                                android:text="@string/date_bmi"
+                                android:textSize="@dimen/fontsize_content_small"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_weight"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/content_weight"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/fontsize_content_normal" />
+                        android:layout_marginHorizontal="8dp"
+                        android:background="@drawable/layout_bg_2"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:onClick="navigation"
+                        android:layout_marginTop="8dp"
+                        android:paddingVertical="16sp">
+
+                        <ImageView
+                            android:id="@+id/iv_weight"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:contentDescription="@string/desc"
+                            app:srcCompat="@drawable/img_balance" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_content_weight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/lbl_weight"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fontsize_content_big"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/content_weight"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fontsize_content_normal" />
+                        </LinearLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/layout_date_weight"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/tv_date_weight"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="24dp"
+                                android:text="@string/date_weight"
+                                android:textSize="@dimen/fontsize_content_small"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_water"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:background="@drawable/layout_bg_2"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:onClick="navigation"
+                        android:layout_marginTop="8dp"
+                        android:paddingVertical="16sp">
+
+                        <ImageView
+                            android:id="@+id/iv_water"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:contentDescription="@string/desc"
+                            app:srcCompat="@drawable/img_water" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_content_water"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/lbl_water"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fontsize_content_big"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/content_water"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fontsize_content_normal" />
+                        </LinearLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/layout_date_water"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/tv_date_water"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="24dp"
+                                android:text="@string/date_water"
+                                android:textSize="@dimen/fontsize_content_small"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_sleep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:background="@drawable/layout_bg_2"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:onClick="navigation"
+                        android:layout_marginTop="8dp"
+                        android:paddingVertical="16sp">
+
+                        <ImageView
+                            android:id="@+id/iv_sleep"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:contentDescription="@string/desc"
+                            app:srcCompat="@drawable/img_clock" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_content_sleep"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/lbl_sleep"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fontsize_content_big"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/content_sleep"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fontsize_content_normal" />
+                        </LinearLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/layout_date_sleep"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/tv_date_sleep"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="24dp"
+                                android:text="@string/date_sleep"
+                                android:textSize="@dimen/fontsize_content_small"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
                 </LinearLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/layout_date_weight"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/tv_date_weight"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="24dp"
-                        android:text="@string/date_weight"
-                        android:textSize="@dimen/fontsize_content_small"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout_water"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:background="@drawable/layout_bg_2"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:onClick="navigation"
-                android:layout_marginTop="8dp"
-                android:paddingVertical="16sp">
-
-                <ImageView
-                    android:id="@+id/iv_water"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:contentDescription="@string/desc"
-                    app:srcCompat="@drawable/img_water" />
-
-                <LinearLayout
-                    android:id="@+id/layout_content_water"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lbl_water"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/fontsize_content_big"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/content_water"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/fontsize_content_normal" />
-                </LinearLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/layout_date_water"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/tv_date_water"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="24dp"
-                        android:text="@string/date_water"
-                        android:textSize="@dimen/fontsize_content_small"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout_sleep"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:background="@drawable/layout_bg_2"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:onClick="navigation"
-                android:layout_marginTop="8dp"
-                android:paddingVertical="16sp">
-
-                <ImageView
-                    android:id="@+id/iv_sleep"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:contentDescription="@string/desc"
-                    app:srcCompat="@drawable/img_clock" />
-
-                <LinearLayout
-                    android:id="@+id/layout_content_sleep"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lbl_sleep"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/fontsize_content_big"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/content_sleep"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/fontsize_content_normal" />
-                </LinearLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/layout_date_sleep"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/tv_date_sleep"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="24dp"
-                        android:text="@string/date_sleep"
-                        android:textSize="@dimen/fontsize_content_small"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </LinearLayout>
+            </ScrollView>
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
