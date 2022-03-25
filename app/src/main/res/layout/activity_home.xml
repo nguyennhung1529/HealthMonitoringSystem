@@ -67,6 +67,7 @@
                 android:background="@drawable/layout_bg_lv1"
                 android:gravity="center_vertical"
                 android:orientation="vertical"
+                android:onClick="navigation"
                 android:paddingVertical="28dp">
 
                 <TextView
@@ -90,6 +91,7 @@
                 android:background="@drawable/layout_bg_lv2"
                 android:gravity="center_vertical"
                 android:orientation="vertical"
+                android:onClick="navigation"
                 android:paddingVertical="28dp">
 
                 <TextView
@@ -113,6 +115,7 @@
                 android:background="@drawable/layout_bg_lv3"
                 android:gravity="center_vertical"
                 android:orientation="vertical"
+                android:onClick="navigation"
                 android:paddingVertical="28dp">
 
                 <TextView
@@ -136,6 +139,7 @@
                 android:background="@drawable/layout_bg_lv4"
                 android:gravity="center_vertical"
                 android:orientation="vertical"
+                android:onClick="navigation"
                 android:paddingVertical="28dp">
 
                 <TextView
@@ -171,6 +175,7 @@
             android:contentDescription="@string/desc"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:onClick="navigation"
             app:srcCompat="@drawable/btn_notice" />
 
         <ImageView
@@ -181,6 +186,7 @@
             app:layout_constraintEnd_toStartOf="@+id/iv_btn_user"
             app:layout_constraintStart_toEndOf="@+id/iv_btn_notice"
             app:layout_constraintTop_toTopOf="parent"
+            android:onClick="navigation"
             app:srcCompat="@drawable/btn_home" />
 
         <ImageView
@@ -190,6 +196,7 @@
             android:contentDescription="@string/desc"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:onClick="navigation"
             app:srcCompat="@drawable/btn_user" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

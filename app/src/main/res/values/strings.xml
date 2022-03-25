@@ -73,7 +73,7 @@
 
     //dang ki
     <string name="ten">Tên</string>
-    <string name="dien_thoai">Số điện thoại</string>
+    <string name="dien_thoai">Điện thoại</string>
     <string name="tuoi">Tuổi</string>
     <string name="nam">Nam</string>
     <string name="nu">Nữ</string>
@@ -103,4 +103,7 @@
     <string name="height_value">175</string>
     <string name="weight_value">70</string>
     <string name="btn_update">Cập nhật</string>
+    <string name="trang_chu">Trang chủ</string>
+    <string name="profile">Profile</string>
+    <string name="dang_xuat">Đăng xuất</string>
 </resources>

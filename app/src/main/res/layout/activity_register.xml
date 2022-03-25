@@ -199,6 +199,7 @@
         android:layout_marginBottom="32dp"
         android:backgroundTint="?attr/colorPrimary"
         android:text="@string/gui"
+        android:onClick="confirmRegister"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
