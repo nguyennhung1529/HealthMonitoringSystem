@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "972636217144",
+    "project_id": "neu-team11-healthmonitor",
+    "storage_bucket": "neu-team11-healthmonitor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:972636217144:android:649e10f35532c5750e6bcd",
+        "android_client_info": {
+          "package_name": "com.example.healthmonitor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "972636217144-j7k0qo1r36c8gb7db86m85pqq5t16raf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm-rAbVw82E1EqsazDJcem-zGjtCZaZbI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "972636217144-j7k0qo1r36c8gb7db86m85pqq5t16raf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
