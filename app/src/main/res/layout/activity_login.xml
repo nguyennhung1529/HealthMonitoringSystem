@@ -8,7 +8,7 @@
     tools:context=".LoginActivity">
 
     <TextView
-        android:id="@+id/bannerLogin"
+        android:id="@+id/banner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/bannerLoginDesc"
+        android:id="@+id/bannerDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome to HM app"
@@ -31,7 +31,7 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/banner" />
 
     <EditText
         android:id="@+id/edtUsername"
@@ -43,7 +43,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerLoginDesc" />
+        app:layout_constraintTop_toBottomOf="@+id/bannerDescription" />
 
     <EditText
         android:id="@+id/edtPassword"
@@ -51,7 +51,6 @@
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
         android:autofillHints="enter password"
-        android:ems="10"
         android:hint="@string/hint_password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,7 +86,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:gravity="end"
         android:text="@string/tv_dangki"
         android:textSize="16sp"
         android:textColor="@color/dark_blue"
