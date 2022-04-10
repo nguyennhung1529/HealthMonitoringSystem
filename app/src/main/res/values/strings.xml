@@ -50,14 +50,6 @@
     <string name="img_bmi">img_bmi</string>
     <string name="arrow">arrow</string>
 
-    //dang nhap
-    <string name="tai_khoan">Tài khoản</string>
-    <string name="dang_nhap">Health Monitor</string>
-    <string name="btn_dangnhap">Đăng nhập</string>
-    <string name="chua_co_tai_khoan">Chưa có tài khoản?</string>
-    <string name="tv_dangki">Đăng kí</string>
-    <string name="mat_khau">Mật khẩu</string>
-
     <string name="thong_tin_ca_nhan">Thông tin cá nhân</string>
     <string name="tv_gioitinh">Giới tính:</string>
     <string name="tv_cannang">Cân nặng (kg):</string>
@@ -106,4 +98,20 @@
     <string name="trang_chu">Trang chủ</string>
     <string name="profile">Profile</string>
     <string name="dang_xuat">Đăng xuất</string>
+
+    <!-- Login Activity -->
+    <string name="banner_description">Sức khỏe hàng ngày</string>
+    <string name="health_monitor">Health Monitor</string>
+    <string name="nhap_email">Nhập Email</string>
+    <string name="nhap_mat_khau">Nhập mật khẩu</string>
+    <string name="dang_nhap">Đăng nhập</string>
+    <string name="quen_mat_khau">Quên mật khẩu?</string>
+
+    <!-- Register Activity -->
+    <string name="dang_ky">Đăng ký</string>
+    <string name="nhap_ho_va_ten">Nhập họ và tên</string>
+    <string name="nhap_lai_mat_khau">Nhập lại mật khẩu</string>
+    <string name="da_co_tai_khoan">Đã có tài khoản?</string>
+
+
 </resources>

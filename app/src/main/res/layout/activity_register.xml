@@ -8,30 +8,30 @@
     tools:context=".RegisterActivity">
 
     <TextView
-        android:id="@+id/banner"
+        android:id="@+id/tvBanner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
-        android:text="@string/dang_nhap"
+        android:text="@string/health_monitor"
         android:textAlignment="center"
-        android:textColor="@color/dark_blue"
-        android:textSize="42dp"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="@dimen/font_banner"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/bannerDescription"
+        android:id="@+id/tvBannerDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to HM app"
+        android:text="@string/banner_description"
         android:textAlignment="center"
-        android:textSize="18sp"
+        android:textSize="@dimen/font_normal_16"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/banner" />
+        app:layout_constraintTop_toBottomOf="@+id/tvBanner" />
 
     <EditText
         android:id="@+id/edtName"
@@ -39,21 +39,19 @@
         android:layout_height="50dp"
         android:layout_marginTop="42dp"
         android:autofillHints="enter name"
-        android:hint="Họ và tên"
+        android:hint="@string/nhap_ho_va_ten"
         android:inputType="textPersonName"
-        android:textSize="@dimen/fontsize_content_normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/tvBannerDescription" />
 
     <EditText
         android:id="@+id/edtEmail"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:autofillHints="enter email"
-        android:hint="Nhập email"
+        android:hint="@string/nhap_email"
         android:inputType="textEmailAddress"
-        android:textSize="@dimen/fontsize_content_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtName" />
 
@@ -73,11 +71,10 @@
         android:id="@+id/edtPassword"
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:autofillHints="enter password"
-        android:hint="Nhập mật khẩu"
+        android:hint="@string/nhap_mat_khau"
         android:inputType="textPassword"
-        android:textSize="@dimen/fontsize_content_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
 
@@ -85,21 +82,20 @@
         android:id="@+id/edtConfirmPassword"
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:autofillHints="enter password confirm"
-        android:hint="Nhập lại mật khẩu"
+        android:hint="@string/nhap_lai_mat_khau"
         android:inputType="textPassword"
-        android:textSize="@dimen/fontsize_content_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/dark_blue"
-        android:text="Đăng ký"
+        android:layout_height="65dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="?attr/colorPrimary"
+        android:text="@string/dang_ky"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -114,25 +110,37 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegister"
-        app:layout_constraintTop_toEndOf="@+id/btnRegister">
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister">
 
         <TextView
             android:id="@+id/tvQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Đã có tài khoản?"
-            android:textSize="16sp" />
+            android:text="@string/da_co_tai_khoan"
+            android:textSize="@dimen/font_normal_16" />
 
         <TextView
             android:id="@+id/tvLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="Đăng nhập"
-            android:textColor="@color/dark_blue"
-            android:textSize="16sp" />
+            android:text="@string/dang_nhap"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/font_normal_16" />
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

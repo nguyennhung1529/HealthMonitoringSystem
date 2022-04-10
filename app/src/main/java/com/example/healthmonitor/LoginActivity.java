@@ -7,8 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.TextView;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private TextView tvRegister, tvForgotPassword;
+    private Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,13 +24,26 @@ public class LoginActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        tvRegister = findViewById(R.id.tvRegister);
+        tvRegister.setOnClickListener(this);
+
+        tvForgotPassword = findViewById(R.id.tvForgotPassword);
+        tvForgotPassword.setOnClickListener(this);
+
+        btnLogin = findViewById(R.id.btnLogin);
+        btnLogin.setOnClickListener(this);
     }
 
     public void confirmLogin(View view) {
         startActivity(new Intent(this, HomeActivity.class));
     }
 
-    public void linkRegister(View view) {
-        startActivity(new Intent(this, RegisterActivity.class));
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tvRegister:
+                startActivity(new Intent(this, RegisterActivity.class));
+        }
     }
 }
