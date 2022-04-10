@@ -140,6 +140,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                         progressBar.setVisibility(View.GONE);
 
                                         // redirect to login layout
+                                        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                                     } else {
                                         displayToast("Đăng ký không thành công! Hãy kiểm tra lại thông tin!");
                                         progressBar.setVisibility(View.GONE);
