@@ -37,7 +37,7 @@
         android:id="@+id/edtName"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="42dp"
         android:autofillHints="enter name"
         android:hint="Họ và tên"
         android:inputType="textPersonName"
@@ -57,17 +57,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtName" />
 
-    <EditText
-        android:id="@+id/edtPhone"
-        android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:layout_marginTop="16dp"
-        android:autofillHints="enter phone"
-        android:hint="Nhập số điện thoại"
-        android:inputType="phone"
-        android:textSize="@dimen/fontsize_content_normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
+<!--    <EditText-->
+<!--        android:id="@+id/edtPhone"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50sp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:autofillHints="enter phone"-->
+<!--        android:hint="Nhập số điện thoại"-->
+<!--        android:inputType="phone"-->
+<!--        android:textSize="@dimen/fontsize_content_normal"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />-->
 
     <EditText
         android:id="@+id/edtPassword"
@@ -79,7 +79,7 @@
         android:inputType="textPassword"
         android:textSize="@dimen/fontsize_content_normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPhone" />
+        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
 
     <EditText
         android:id="@+id/edtConfirmPassword"
@@ -106,30 +106,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtConfirmPassword" />
 
-    <TextView
-        android:id="@+id/tvQuestion"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="88dp"
-        android:text="Đã có tài khoản?"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/tvLogin"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
-
-    <TextView
-        android:id="@+id/tvLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Đăng nhập"
-        android:textColor="@color/dark_blue"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvQuestion"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvQuestion" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister"
+        app:layout_constraintTop_toEndOf="@+id/btnRegister">
+
+        <TextView
+            android:id="@+id/tvQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đã có tài khoản?"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="Đăng nhập"
+            android:textColor="@color/dark_blue"
+            android:textSize="16sp" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
