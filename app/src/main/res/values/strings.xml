@@ -38,7 +38,6 @@
     <string name="enter_wakeTime">6:00</string>
     <string name="sleep">sleep</string>
     <string name="glass">cốc</string>
-    <string name="can_nang">Cân nặng:</string>
     <string name="kg">kg</string>
     <string name="enter_weight">55</string>
 
@@ -64,16 +63,7 @@
     <string name="rad_nam">Nam</string>
 
     //dang ki
-    <string name="ten">Tên</string>
-    <string name="dien_thoai">Điện thoại</string>
-    <string name="tuoi">Tuổi</string>
-    <string name="nam">Nam</string>
-    <string name="nu">Nữ</string>
-    <string name="register_can_nang">Cân nặng</string>
-    <string name="chieu_cao">Chiều cao</string>
-    <string name="email">Email</string>
-    <string name="gioi_tinh">Giới tính</string>
-    <string name="dang_ki">Đăng kí</string>
+
     <string name="gui">Gửi</string>
     <string name="lbl_password">Mật khẩu</string>
     <string name="article_heading_register">Đăng ký</string>
@@ -112,6 +102,26 @@
     <string name="nhap_ho_va_ten">Nhập họ và tên</string>
     <string name="nhap_lai_mat_khau">Nhập lại mật khẩu</string>
     <string name="da_co_tai_khoan">Đã có tài khoản?</string>
+    <string name="so_dien_thoai">Số điện thoại</string>
+
+    <!-- Update profile Activity -->
+    <string name="ten">Tên</string>
+    <string name="dien_thoai">Điện thoại</string>
+    <string name="tuoi">Tuổi</string>
+    <string name="nam">Nam</string>
+    <string name="nu">Nữ</string>
+    <string name="can_nang">Cân nặng</string>
+    <string name="chieu_cao">Chiều cao</string>
+    <string name="email">Email</string>
+    <string name="gioi_tinh">Giới tính</string>
+    <string name="cap_nhat">Cập nhật</string>
+    <string name="bo_qua">Bỏ qua</string>
+    <string name="nhap_so_dien_thoai">Nhập số điện thoại</string>
+    <string name="nhap_tuoi">Nhập tuổi</string>
+    <string name="nhap_chieu_cao_cm">Nhập chiều cao (cm)</string>
+    <string name="nhap_can_nang_kg">Nhập cân nặng (kg)</string>
+    <string name="tai_khoan">Tài khoản</string>
+    <string name="lay_mat_khau">Lấy mật khẩu</string>
 
 
 </resources>
