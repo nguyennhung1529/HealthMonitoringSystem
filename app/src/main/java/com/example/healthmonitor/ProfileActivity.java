@@ -61,10 +61,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         initListener();
 
         // Read user profile
-        showUserInformation();
+        showUserProfile();
     }
 
-    public void showUserInformation() {
+    public void showUserProfile() {
         progressBar.setVisibility(View.VISIBLE);
         if (user == null) {
             return;
