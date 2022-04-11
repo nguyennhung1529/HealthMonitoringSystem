@@ -48,7 +48,7 @@
                 android:layout_marginTop="32dp"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/desc"
-                app:srcCompat="@drawable/img_user_blue" />
+                app:srcCompat="@drawable/img_user_default" />
 
             <EditText
                 android:id="@+id/edtName"

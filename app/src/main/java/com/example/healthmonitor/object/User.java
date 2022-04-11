@@ -6,7 +6,7 @@ public class User {
     private float weight;
 
     public User() {
-
+        // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
     public User(String name, String email) {

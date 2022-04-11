@@ -58,6 +58,7 @@ public class WaterActivity extends AppCompatActivity {
                 myAlertBuilder.setPositiveButton("OK", (dialog, which) -> {
                     FirebaseAuth.getInstance().signOut();
                     startActivity(new Intent(this, LoginActivity.class));
+                    finishAffinity();
                 });
                 myAlertBuilder.setNegativeButton("Cancel", null);
 

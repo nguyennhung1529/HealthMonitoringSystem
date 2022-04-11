@@ -40,21 +40,26 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // Anh xa cac bien
         mAuth = FirebaseAuth.getInstance();
 
+        initUI();
+        initListener();
+
+
+    }
+
+    public void initUI () {
         edtEmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.edtPassword);
-
         progressBar = findViewById(R.id.progressBar);
-
         tvRegister = findViewById(R.id.tvRegister);
-        tvRegister.setOnClickListener(this);
-
         tvForgotPassword = findViewById(R.id.tvForgotPassword);
-        tvForgotPassword.setOnClickListener(this);
-
         btnLogin = findViewById(R.id.btnLogin);
+    }
+
+    public void initListener () {
+        tvRegister.setOnClickListener(this);
+        tvForgotPassword.setOnClickListener(this);
         btnLogin.setOnClickListener(this);
     }
 
@@ -99,16 +104,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                             if (user.isEmailVerified()) {
-                                // redirect to user profile
+                                // redirect to Home activity
                                 progressBar.setVisibility(View.GONE);
-                                startActivity(new Intent(LoginActivity.this, ProfileActivity.class));
+                                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                                finishAffinity();
                             } else {
                                 user.sendEmailVerification();
                                 progressBar.setVisibility(View.GONE);
                                 displayToast("Kiểm tra gmail để xác thực tài khoản của bạn!");
                             }
                         } else {
-                            displayToast("Đăng nhập thất bại!");
+                            displayToast("Tài khoản hoặc mật khẩu không chính xác!");
                             progressBar.setVisibility(View.GONE);
                         }
                     }
