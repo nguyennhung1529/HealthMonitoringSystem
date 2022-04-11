@@ -64,6 +64,9 @@ public class WaterActivity extends AppCompatActivity {
 
                 myAlertBuilder.show();
                 return true;
+            case R.id.action_post:
+                startActivity(new Intent(this, PostActivity.class));
+                break;
             default:
                 // Do nothing
         }

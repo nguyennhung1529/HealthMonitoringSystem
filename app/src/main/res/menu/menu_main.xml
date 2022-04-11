@@ -39,7 +39,7 @@
         app:showAsAction="never"/>
 
     <item
-        android:id="@+id/action_blog"
+        android:id="@+id/action_post"
         android:orderInCategory="70"
         android:title="Bài viết"
         app:showAsAction="never"/>

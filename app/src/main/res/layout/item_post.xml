@@ -8,6 +8,7 @@
     android:gravity="center_vertical"
     app:cardCornerRadius="15dp"
     android:outlineSpotShadowColor="@color/dark_blue"
+    android:backgroundTint="@color/light_blue_2"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -18,8 +19,7 @@
         <ImageView
             android:id="@+id/ivImagePost"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxHeight="400dp"
+            android:layout_height="220dp"
             android:adjustViewBounds="true"
             android:focusable="true"
             android:focusableInTouchMode="true"
@@ -46,6 +46,8 @@
                 android:textSize="@dimen/font_20"
                 android:textStyle="bold"
                 android:textColor="@color/black"
+                android:maxLines="2"
+                android:ellipsize="end"
                 android:text="@string/post_title"/>
             <TextView
                 android:id="@+id/tvDescriptionPost"
@@ -53,6 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:maxLines="3"
+                android:ellipsize="end"
                 android:text="@string/post_description"/>
 
         </LinearLayout>

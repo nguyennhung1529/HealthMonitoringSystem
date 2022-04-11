@@ -8,9 +8,12 @@ public class Post {
     private String title;
     private String description;
     private String source;
-    private Uri urlImage;
+    private String urlImage;
 
-    public Post(String title, String description, String source, Uri urlImage) {
+    public Post() {
+    }
+
+    public Post(String title, String description, String source, String urlImage) {
         this.title = title;
         this.description = description;
         this.source = source;
@@ -41,11 +44,21 @@ public class Post {
         this.source = source;
     }
 
-    public Uri getUrlImage() {
+    public String getUrlImage() {
         return urlImage;
     }
 
-    public void setUrlImage(Uri urlImage) {
+    public void setUrlImage(String urlImage) {
         this.urlImage = urlImage;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", source='" + source + '\'' +
+                ", urlImage='" + urlImage + '\'' +
+                '}';
     }
 }

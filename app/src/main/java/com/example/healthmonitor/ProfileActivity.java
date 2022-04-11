@@ -169,6 +169,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
                 myAlertBuilder.show();
                 return true;
+            case R.id.action_post:
+                startActivity(new Intent(this, PostActivity.class));
+                break;
             default:
                 // Do nothing
         }

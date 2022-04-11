@@ -130,6 +130,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 myAlertBuilder.show();
                 return true;
+            case R.id.action_post:
+                startActivity(new Intent(this, PostActivity.class));
+                break;
             default:
                 // Do nothing
         }
