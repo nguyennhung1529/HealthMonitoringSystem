@@ -122,6 +122,10 @@
     <string name="nhap_can_nang_kg">Nhập cân nặng (kg)</string>
     <string name="tai_khoan">Tài khoản</string>
     <string name="lay_mat_khau">Lấy mật khẩu</string>
+    <string name="chi_so_bmi">Chỉ số BMI</string>
+    <string name="empty_value">_</string>
+    <string name="no_water">0/10</string>
+    <string name="no_step">0</string>
 
 
 </resources>
