@@ -126,6 +126,9 @@
     <string name="empty_value">_</string>
     <string name="no_water">0/10</string>
     <string name="no_step">0</string>
+    <string name="anh_bai_viet">Ảnh bài viết</string>
+    <string name="post_title">Tập thể dục: 7 lợi ích của hoạt động thể chất thường xuyên</string>
+    <string name="post_description">Tập thể dục và hoạt động thể chất là những cách tuyệt vời để cảm thấy tốt hơn, tăng cường sức khỏe và tận hưởng cuộc sống.</string>
 
 
 </resources>

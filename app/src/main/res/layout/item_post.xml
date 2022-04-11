@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_item_post"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    app:cardCornerRadius="15dp"
+    android:outlineSpotShadowColor="@color/dark_blue"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivImagePost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="400dp"
+            android:adjustViewBounds="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/anh_bai_viet"
+            android:src="@drawable/img_post_default"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivImagePost">
+
+            <TextView
+                android:id="@+id/tvTitlePost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_20"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="@string/post_title"/>
+            <TextView
+                android:id="@+id/tvDescriptionPost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:maxLines="3"
+                android:text="@string/post_description"/>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
