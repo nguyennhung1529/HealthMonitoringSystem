@@ -25,9 +25,7 @@ import java.util.ArrayList;
 
 public class PostActivity extends AppCompatActivity {
 
-    private FirebaseUser user;
     private DatabaseReference mDatabase;
-    private String userID;
 
     private RecyclerView rcvPost;
     private ArrayList<Post> mPostList;
@@ -40,8 +38,6 @@ public class PostActivity extends AppCompatActivity {
 
         initUI();
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        userID = user.getUid();
 
         mPostList = new ArrayList<>();
 
