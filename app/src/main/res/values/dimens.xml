@@ -6,4 +6,8 @@
     <dimen name="fontsize_content_big">20sp</dimen>
     <dimen name="fontsize_h1">30sp</dimen>
     <dimen name="fontsize_content_small">16sp</dimen>
+    <dimen name="font_banner">42sp</dimen>
+    <dimen name="font_normal_16">16sp</dimen>
+    <dimen name="font_content_10">10sp</dimen>
+    <dimen name="font_20">20sp</dimen>
 </resources>

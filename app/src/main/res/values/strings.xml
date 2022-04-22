@@ -38,7 +38,6 @@
     <string name="enter_wakeTime">6:00</string>
     <string name="sleep">sleep</string>
     <string name="glass">cốc</string>
-    <string name="can_nang">Cân nặng:</string>
     <string name="kg">kg</string>
     <string name="enter_weight">55</string>
 
@@ -49,14 +48,6 @@
     <string name="kq_trangthai">Cân đối</string>
     <string name="img_bmi">img_bmi</string>
     <string name="arrow">arrow</string>
-
-    //dang nhap
-    <string name="tai_khoan">Tài khoản</string>
-    <string name="dang_nhap">Health Monitor</string>
-    <string name="btn_dangnhap">Đăng nhập</string>
-    <string name="chua_co_tai_khoan">Chưa có tài khoản?</string>
-    <string name="tv_dangki">Đăng kí</string>
-    <string name="mat_khau">Mật khẩu</string>
 
     <string name="thong_tin_ca_nhan">Thông tin cá nhân</string>
     <string name="tv_gioitinh">Giới tính:</string>
@@ -72,16 +63,7 @@
     <string name="rad_nam">Nam</string>
 
     //dang ki
-    <string name="ten">Tên</string>
-    <string name="dien_thoai">Điện thoại</string>
-    <string name="tuoi">Tuổi</string>
-    <string name="nam">Nam</string>
-    <string name="nu">Nữ</string>
-    <string name="register_can_nang">Cân nặng</string>
-    <string name="chieu_cao">Chiều cao</string>
-    <string name="email">Email</string>
-    <string name="gioi_tinh">Giới tính</string>
-    <string name="dang_ki">Đăng kí</string>
+
     <string name="gui">Gửi</string>
     <string name="lbl_password">Mật khẩu</string>
     <string name="article_heading_register">Đăng ký</string>
@@ -106,4 +88,49 @@
     <string name="trang_chu">Trang chủ</string>
     <string name="profile">Profile</string>
     <string name="dang_xuat">Đăng xuất</string>
+
+    <!-- Login Activity -->
+    <string name="banner_description">Sức khỏe hàng ngày</string>
+    <string name="health_monitor">Health Monitor</string>
+    <string name="nhap_email">Nhập Email</string>
+    <string name="nhap_mat_khau">Nhập mật khẩu</string>
+    <string name="dang_nhap">Đăng nhập</string>
+    <string name="quen_mat_khau">Quên mật khẩu?</string>
+
+    <!-- Register Activity -->
+    <string name="dang_ky">Đăng ký</string>
+    <string name="nhap_ho_va_ten">Nhập họ và tên</string>
+    <string name="nhap_lai_mat_khau">Nhập lại mật khẩu</string>
+    <string name="da_co_tai_khoan">Đã có tài khoản?</string>
+    <string name="so_dien_thoai">Số điện thoại</string>
+
+    <!-- Update profile Activity -->
+    <string name="ten">Tên</string>
+    <string name="dien_thoai">Điện thoại</string>
+    <string name="tuoi">Tuổi</string>
+    <string name="nam">Nam</string>
+    <string name="nu">Nữ</string>
+    <string name="can_nang">Cân nặng</string>
+    <string name="chieu_cao">Chiều cao</string>
+    <string name="email">Email</string>
+    <string name="gioi_tinh">Giới tính</string>
+    <string name="cap_nhat">Cập nhật</string>
+    <string name="bo_qua">Bỏ qua</string>
+    <string name="nhap_so_dien_thoai">Nhập số điện thoại</string>
+    <string name="nhap_tuoi">Nhập tuổi</string>
+    <string name="nhap_chieu_cao_cm">Nhập chiều cao (cm)</string>
+    <string name="nhap_can_nang_kg">Nhập cân nặng (kg)</string>
+    <string name="tai_khoan">Tài khoản</string>
+    <string name="lay_mat_khau">Lấy mật khẩu</string>
+    <string name="chi_so_bmi">Chỉ số BMI</string>
+    <string name="empty_value">_</string>
+    <string name="no_water">0/10</string>
+    <string name="no_step">0</string>
+    <string name="anh_bai_viet">Ảnh bài viết</string>
+    <string name="post_title">Tập thể dục: 7 lợi ích của hoạt động thể chất thường xuyên</string>
+    <string name="post_description">Tập thể dục và hoạt động thể chất là những cách tuyệt vời để cảm thấy tốt hơn, tăng cường sức khỏe và tận hưởng cuộc sống.</string>
+    <string name="today">Hôm nay</string>
+    <string name="du_lieu">Dữ liệu</string>
+
+
 </resources>

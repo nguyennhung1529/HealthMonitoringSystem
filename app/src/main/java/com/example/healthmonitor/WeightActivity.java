@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class WeightActivity extends AppCompatActivity {
 
     @Override
@@ -54,13 +56,17 @@ public class WeightActivity extends AppCompatActivity {
                 myAlertBuilder.setTitle("Thông báo!");
                 myAlertBuilder.setMessage("Bạn có chắc chắn muốn đăng xuất khỏi hệ thống?");
                 myAlertBuilder.setPositiveButton("OK", (dialog, which) -> {
-                    displayToast("Logout!");
+                    FirebaseAuth.getInstance().signOut();
                     startActivity(new Intent(this, LoginActivity.class));
+                    finishAffinity();
                 });
                 myAlertBuilder.setNegativeButton("Cancel", null);
 
                 myAlertBuilder.show();
                 return true;
+            case R.id.action_post:
+                startActivity(new Intent(this, PostActivity.class));
+                break;
             default:
                 // Do nothing
         }

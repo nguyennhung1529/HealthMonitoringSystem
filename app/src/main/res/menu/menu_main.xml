@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_profile"
-        android:orderInCategory="1000"
-        android:title="@string/profile"
-        android:icon="@drawable/img_user_white"
-        app:showAsAction="ifRoom"/>
+        android:orderInCategory="100"
+        android:title="@string/tai_khoan"
+        app:showAsAction="never"/>
 
     <item
         android:id="@+id/action_home"
         android:orderInCategory="20"
         android:title="@string/trang_chu"
-        app:showAsAction="never"/>
+        android:icon="@drawable/icon_home_white_2"
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/action_bmi"
@@ -39,8 +39,14 @@
         app:showAsAction="never"/>
 
     <item
+        android:id="@+id/action_post"
+        android:orderInCategory="70"
+        android:title="Bài viết"
+        app:showAsAction="never"/>
+
+    <item
         android:id="@+id/action_logout"
-        android:orderInCategory="60"
+        android:orderInCategory="1000"
         android:title="@string/dang_xuat"
         app:showAsAction="never"/>
 

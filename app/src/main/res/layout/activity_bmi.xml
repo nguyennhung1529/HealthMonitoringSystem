@@ -6,64 +6,96 @@
     android:layout_height="match_parent"
     tools:context=".BmiActivity">
 
-<!--    <LinearLayout-->
-<!--        android:id="@+id/layout_article_heading"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="?attr/colorPrimary"-->
-<!--        android:gravity="center_horizontal"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:paddingHorizontal="16dp"-->
-<!--        android:paddingVertical="16dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/layout_article_heading"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:background="?attr/colorPrimary"-->
+    <!--        android:gravity="center_horizontal"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        android:paddingHorizontal="16dp"-->
+    <!--        android:paddingVertical="16dp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent">-->
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="30dp"-->
-<!--            android:layout_height="30dp"-->
-<!--            android:orientation="vertical">-->
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="30dp"-->
+    <!--            android:layout_height="30dp"-->
+    <!--            android:orientation="vertical">-->
 
-<!--            <ImageView-->
-<!--                android:id="@+id/iv_back"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:contentDescription="@string/desc"-->
-<!--                app:srcCompat="@drawable/img_back_white" />-->
-<!--        </LinearLayout>-->
+    <!--            <ImageView-->
+    <!--                android:id="@+id/iv_back"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:contentDescription="@string/desc"-->
+    <!--                app:srcCompat="@drawable/img_back_white" />-->
+    <!--        </LinearLayout>-->
 
-<!--        <TextView-->
-<!--            android:id="@+id/article_heading"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="16dp"-->
-<!--            android:text="@string/article_heading_bmi"-->
-<!--            android:textAppearance="@style/TextAppearance.AppCompat.Large"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:textSize="@dimen/fontsize_article_heading"-->
-<!--            android:textStyle="bold" />-->
+    <!--        <TextView-->
+    <!--            android:id="@+id/article_heading"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginStart="16dp"-->
+    <!--            android:text="@string/article_heading_bmi"-->
+    <!--            android:textAppearance="@style/TextAppearance.AppCompat.Large"-->
+    <!--            android:textColor="@android:color/white"-->
+    <!--            android:textSize="@dimen/fontsize_article_heading"-->
+    <!--            android:textStyle="bold" />-->
 
-<!--    </LinearLayout>-->
+    <!--    </LinearLayout>-->
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="412dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="112dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/today"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_dulieu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/du_lieu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_bmi_status" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="169dp"
         android:layout_height="158dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="8dp"
         android:contentDescription="@string/img_bmi"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:srcCompat="@drawable/img_bmi" />
 
     <LinearLayout
         android:id="@+id/layout_bmi_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="72dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:id="@+id/textView4"
@@ -75,7 +107,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/text_chi_so_BMI"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -89,10 +121,11 @@
         android:id="@+id/layout_bmi_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/layout_bmi_value">
+        app:layout_constraintTop_toBottomOf="@+id/layout_bmi_value"
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:id="@+id/textView5"
@@ -100,17 +133,17 @@
             android:layout_height="wrap_content"
             android:text="@string/trang_thai"
             android:textColor="#000000"
-            android:textStyle="bold"
-            android:textSize="@dimen/fontsize_content" />
+            android:textSize="@dimen/fontsize_content"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/text_chi_so_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
             android:layout_marginStart="8dp"
+            android:text="@string/kq_trangthai"
             android:textSize="@dimen/fontsize_content"
-            android:text="@string/kq_trangthai" />
+            android:textStyle="bold" />
 
     </LinearLayout>
 
