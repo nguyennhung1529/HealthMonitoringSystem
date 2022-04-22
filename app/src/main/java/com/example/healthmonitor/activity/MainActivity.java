@@ -1,4 +1,4 @@
-package com.example.healthmonitor;
+package com.example.healthmonitor.activity;
 
 import static android.content.ContentValues.TAG;
 
@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.healthmonitor.R;
 import com.example.healthmonitor.object.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

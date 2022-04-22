@@ -1,4 +1,4 @@
-package com.example.healthmonitor;
+package com.example.healthmonitor.activity;
 
 import static android.content.ContentValues.TAG;
 
@@ -13,8 +13,6 @@ import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -23,6 +21,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.healthmonitor.R;
 import com.example.healthmonitor.object.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

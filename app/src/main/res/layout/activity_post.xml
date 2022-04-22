@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:paddingBottom="16dp"
-    tools:context=".PostActivity">
+    tools:context=".activity.PostActivity">
 
 <!--    <androidx.cardview.widget.CardView-->
 <!--        android:id="@+id/layout_description_post"-->

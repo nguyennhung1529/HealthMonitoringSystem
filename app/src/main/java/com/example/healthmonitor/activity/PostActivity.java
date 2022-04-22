@@ -1,4 +1,4 @@
-package com.example.healthmonitor;
+package com.example.healthmonitor.activity;
 
 import static android.content.ContentValues.TAG;
 
@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.healthmonitor.R;
 import com.example.healthmonitor.adapter.PostAdapter;
 import com.example.healthmonitor.object.Post;
 import com.google.firebase.auth.FirebaseAuth;

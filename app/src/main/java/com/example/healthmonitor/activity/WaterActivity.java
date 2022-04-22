@@ -1,4 +1,4 @@
-package com.example.healthmonitor;
+package com.example.healthmonitor.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,14 +10,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.healthmonitor.R;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class SleepActivity extends AppCompatActivity {
+public class WaterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sleep);
+        setContentView(R.layout.activity_water);
     }
 
     public void displayToast(String message) {
@@ -52,7 +53,7 @@ public class SleepActivity extends AppCompatActivity {
                 startActivity(new Intent(this, SleepActivity.class));
                 return true;
             case R.id.action_logout:
-                AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(SleepActivity.this);
+                AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(WaterActivity.this);
                 myAlertBuilder.setTitle("Thông báo!");
                 myAlertBuilder.setMessage("Bạn có chắc chắn muốn đăng xuất khỏi hệ thống?");
                 myAlertBuilder.setPositiveButton("OK", (dialog, which) -> {
@@ -72,5 +73,4 @@ public class SleepActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

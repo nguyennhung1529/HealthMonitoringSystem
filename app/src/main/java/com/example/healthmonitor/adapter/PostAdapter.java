@@ -14,10 +14,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.healthmonitor.PostActivity;
 import com.example.healthmonitor.R;
 import com.example.healthmonitor.object.Post;
-import com.example.healthmonitor.object.User;
 
 import java.util.ArrayList;
 

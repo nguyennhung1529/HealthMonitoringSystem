@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthMonitor">
         <activity
-            android:name=".PostActivity"
+            android:name=".activity.PostActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,34 +22,34 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".ForgotPassword"
+            android:name=".activity.ForgotPassword"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activity.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".SleepActivity"
+            android:name=".activity.SleepActivity"
             android:exported="false" />
         <activity
-            android:name=".BmiActivity"
+            android:name=".activity.BmiActivity"
             android:exported="false" />
         <activity
-            android:name=".WeightActivity"
+            android:name=".activity.WeightActivity"
             android:exported="false" />
         <activity
-            android:name=".WaterActivity"
+            android:name=".activity.WaterActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".activity.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".activity.HomeActivity"
             android:exported="false" />
     </application>
 
