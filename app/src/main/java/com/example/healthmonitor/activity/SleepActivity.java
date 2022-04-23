@@ -17,6 +17,7 @@ import com.example.healthmonitor.R;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
@@ -51,11 +52,8 @@ public class SleepActivity extends AppCompatActivity {
         showBarChart();
         showPieChart();
 
-        btnSetSleepTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btnSetSleepTime.setOnClickListener(view -> {
 //                startActivity(new Intent(this, SetAlarm));
-            }
         });
 
     }
@@ -114,6 +112,17 @@ public class SleepActivity extends AppCompatActivity {
         mBarChartSleepTime.getDescription().setText("Bar chart example");
         mBarChartSleepTime.getDescription().setPosition(3f, 3f);
         mBarChartSleepTime.animateY(1500);
+
+        LimitLine ll1 = new LimitLine(150f, "Standard");
+        ll1.setLineWidth(4f);
+        ll1.enableDashedLine(10f, 10f, 0f);
+        ll1.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_TOP);
+        ll1.setTextSize(10f);
+//        ll1.setTypeface();
+
+        YAxis leftAxis = mBarChartSleepTime.getAxisLeft();
+        leftAxis.removeAllLimitLines(); // reset all limit lines to avoid overlapping lines
+        leftAxis.addLimitLine(ll1);
 
 
 //        mBarChartSleepTime.getXAxis().setValueFormatter(new IndexAxisValueFormatter(xAxisLabel));
@@ -207,7 +216,7 @@ public class SleepActivity extends AppCompatActivity {
                 startActivity(new Intent(this, WaterActivity.class));
                 return true;
             case R.id.action_weight:
-                startActivity(new Intent(this, WeightActivity.class));
+                startActivity(new Intent(this, WeightStatisticActivity.class));
                 return true;
             case R.id.action_sleep:
                 startActivity(new Intent(this, SleepActivity.class));

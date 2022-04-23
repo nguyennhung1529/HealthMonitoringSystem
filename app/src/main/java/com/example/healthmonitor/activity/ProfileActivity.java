@@ -150,7 +150,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 startActivity(new Intent(this, WaterActivity.class));
                 return true;
             case R.id.action_weight:
-                startActivity(new Intent(this, WeightActivity.class));
+                startActivity(new Intent(this, WeightStatisticActivity.class));
                 return true;
             case R.id.action_sleep:
                 startActivity(new Intent(this, SleepActivity.class));

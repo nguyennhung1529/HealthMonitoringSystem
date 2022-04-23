@@ -1,103 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.WeightActivity">
 
-<!--    <LinearLayout-->
-<!--        android:id="@+id/layout_article_heading"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="?attr/colorPrimary"-->
-<!--        android:gravity="center_horizontal"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:paddingHorizontal="16dp"-->
-<!--        android:paddingVertical="16dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="30dp"-->
-<!--            android:layout_height="30dp"-->
-<!--            android:orientation="vertical">-->
-
-<!--            <ImageView-->
-<!--                android:id="@+id/iv_back"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:contentDescription="@string/desc"-->
-<!--                app:srcCompat="@drawable/img_back_white" />-->
-<!--        </LinearLayout>-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/article_heading"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="16dp"-->
-<!--            android:text="@string/article_heading_weight"-->
-<!--            android:textAppearance="@style/TextAppearance.AppCompat.Large"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:textSize="@dimen/fontsize_article_heading"-->
-<!--            android:textStyle="bold" />-->
-
-<!--    </LinearLayout>-->
-
-    <ImageView
-        android:id="@+id/iv_scale"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
-        android:layout_marginTop="164dp"
-        android:contentDescription="@string/weight"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_balance" />
-
-    <LinearLayout
-        android:id="@+id/layout_weight"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_scale">
-        <TextView
-            android:id="@+id/lbl_weight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/can_nang"
-            android:textSize="@dimen/fontsize_content"
-            android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:paddingVertical="20dp">
 
-        <EditText
-            android:id="@+id/input_weight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:autofillHints="weight"
-            android:hint="@string/hint_weight"
-            android:textColorHint="#757575"
-            android:textSize="@dimen/fontsize_content"
-            android:textStyle="bold"
-            android:ems="2"
-            android:inputType="numberDecimal"
-            android:layout_marginStart="8dp"
-            android:background="@null"
-            android:labelFor="@+id/iv_scale"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_donvido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="@string/kg"
-            android:textSize="@dimen/fontsize_content"
-            android:textStyle="bold" />
+            <TextView
+                android:text="Ghi lại cân nặng"
+                style="@style/AppTheme.TextTitleHeading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/btnSetSleepTime"
+                android:layout_gravity="center"
+                android:text="T.7 23 Th4 11:49"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="200dp"
+                style="@style/ButtonData"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.ItemContent" >
+
+                <TextView
+                    android:text="Cân nặng (kg)"
+                    style="@style/AppTheme.TextTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <NumberPicker
+                        android:id="@+id/npWeightHead"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:theme="@style/NumberPickerText" />
+                    <TextView
+                        android:text=","
+                        android:textSize="56sp"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                    <NumberPicker
+                        android:id="@+id/npWeightTail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:theme="@style/NumberPickerText" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:text="Cân nặng bạn nhập vào cũng sẽ hiển thị trên hồ sơ người dùng của bạn."
+                android:paddingHorizontal="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.ItemContent" >
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/ic_note"/>
+
+                <EditText
+                    android:id="@+id/edtNoteWeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:autofillHints="Note"
+                    android:gravity="top|start"
+                    android:hint="Ghi chú"
+                    android:inputType="textMultiLine"
+                    android:textSize="18sp"
+                    android:lines="1"
+                    android:maxLines="2"
+                    android:minLines="1" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/btnExit"
+                    style="@style/ButtonData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="150dp"
+                    android:text="Thoát"
+                    app:layout_constraintEnd_toStartOf="@+id/textView"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    style="@style/ButtonData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="150dp"
+                    android:text="Lưu"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/btnExit"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

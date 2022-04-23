@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, WaterActivity.class));
                 return true;
             case R.id.action_weight:
-                startActivity(new Intent(this, WeightActivity.class));
+                startActivity(new Intent(this, WeightStatisticActivity.class));
                 return true;
             case R.id.action_sleep:
                 startActivity(new Intent(this, SleepActivity.class));

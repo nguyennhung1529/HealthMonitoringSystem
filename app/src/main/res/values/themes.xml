@@ -14,15 +14,44 @@
         <!-- Customize your theme here. -->
     </style>
 
+    android:padding="16dp"
+    android:layout_marginVertical="16dp"
+
     <style name="AppTheme.ItemContent" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/layout_light_blue</item>
         <item name="android:textColor">@android:color/black</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
     </style>
 
     <style name="AppTheme.TextTitle" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">@dimen/font_normal_16</item>
         <item name="color">@android:color/darker_gray</item>
         <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="AppTheme.TextTitleHeading" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+    </style>
+
+    <style name="NumberPickerText">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ButtonData">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:background">@drawable/layout_light_blue</item>
     </style>
 
 </resources>

@@ -14,6 +14,13 @@ public class User {
         this.email = email;
     }
 
+    public User(String name, String email, int age, int gender) {
+        this.name = name;
+        this.email = email;
+        this.age = age;
+        this.gender = gender;
+    }
+
     public User(String name, String email, int age, int height, float weight, int gender) {
         this.name = name;
         this.email = email;

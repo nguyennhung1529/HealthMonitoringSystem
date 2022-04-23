@@ -28,7 +28,7 @@ public class HomeActivity extends AppCompatActivity {
         if (view.getId() == R.id.layout_home_bmi) {
             startActivity(new Intent(this, BmiActivity.class));
         } else if (view.getId() == R.id.layout_home_weight) {
-            startActivity(new Intent(this, WeightActivity.class));
+            startActivity(new Intent(this, WeightStatisticActivity.class));
         } else if (view.getId() == R.id.layout_home_water) {
             startActivity(new Intent(this, WaterActivity.class));
         } else if (view.getId() == R.id.layout_home_sleep) {
