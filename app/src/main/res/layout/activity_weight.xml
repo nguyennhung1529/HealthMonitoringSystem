@@ -14,19 +14,19 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
-                android:text="Ghi lại cân nặng"
+                android:text="@string/ghi_lai_can_nang"
                 style="@style/AppTheme.TextTitleHeading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/btnSetSleepTime"
+                android:id="@+id/tvWeightDate"
                 android:layout_gravity="center"
-                android:text="T.7 23 Th4 11:49"
+                android:text="@string/empty_value"
                 android:layout_marginTop="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
                 style="@style/AppTheme.ItemContent" >
 
                 <TextView
-                    android:text="Cân nặng (kg)"
+                    android:text="@string/can_nang_kg"
                     style="@style/AppTheme.TextTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -49,7 +49,7 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:gravity="center"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="32dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -59,7 +59,7 @@
                         android:layout_height="wrap_content"
                         android:theme="@style/NumberPickerText" />
                     <TextView
-                        android:text=","
+                        android:text="@string/dau_phay"
                         android:textSize="56sp"
                         android:gravity="center"
                         android:layout_marginHorizontal="8dp"
@@ -75,7 +75,7 @@
             </LinearLayout>
 
             <TextView
-                android:text="Cân nặng bạn nhập vào cũng sẽ hiển thị trên hồ sơ người dùng của bạn."
+                android:text="@string/description_weight_meaning"
                 android:paddingHorizontal="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -86,28 +86,37 @@
                 android:layout_height="wrap_content"
                 style="@style/AppTheme.ItemContent" >
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@mipmap/ic_note"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@mipmap/ic_note"/>
+
+                </LinearLayout>
 
                 <EditText
-                    android:id="@+id/edtNoteWeight"
+                    android:id="@+id/edt_NoteWeight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp"
+                    android:layout_marginStart="4dp"
                     android:autofillHints="Note"
                     android:gravity="top|start"
-                    android:hint="Ghi chú"
+                    android:hint="@string/ghi_chu"
                     android:inputType="textMultiLine"
                     android:textSize="18sp"
-                    android:lines="1"
-                    android:maxLines="2"
-                    android:minLines="1" />
+                    android:maxLength="100"
+                    android:lines="3"
+                    android:maxLines="5"
+                    android:minLines="1"
+                    android:scrollHorizontally="false"
+                    android:scrollbars="vertical" />
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -117,19 +126,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:minWidth="150dp"
-                    android:text="Thoát"
-                    app:layout_constraintEnd_toStartOf="@+id/textView"
+                    android:text="@string/thoat"
+                    app:layout_constraintEnd_toStartOf="@+id/btnSaveWeight"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/btnSaveWeight"
                     style="@style/ButtonData"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:minWidth="150dp"
-                    android:text="Lưu"
+                    android:text="@string/luu"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/btnExit"

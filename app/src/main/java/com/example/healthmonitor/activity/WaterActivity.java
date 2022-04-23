@@ -19,6 +19,7 @@ public class WaterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_water);
+        setTitle("Lượng nước");
     }
 
     public void displayToast(String message) {

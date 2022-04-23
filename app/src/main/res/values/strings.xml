@@ -130,6 +130,15 @@
     <string name="post_title">Tập thể dục: 7 lợi ích của hoạt động thể chất thường xuyên</string>
     <string name="post_description">Tập thể dục và hoạt động thể chất là những cách tuyệt vời để cảm thấy tốt hơn, tăng cường sức khỏe và tận hưởng cuộc sống.</string>
     <string name="my_chart">My Chart</string>
+    <string name="ghi_lai_can_nang">Ghi lại cân nặng</string>
+    <string name="can_nang_kg">Cân nặng (kg)</string>
+    <string name="dau_phay">,</string>
+    <string name="description_weight_meaning">Cân nặng bạn nhập vào cũng sẽ hiển thị trên hồ sơ người dùng của bạn.</string>
+    <string name="ghi_chu">Ghi chú</string>
+    <string name="thoat">Thoát</string>
+    <string name="luu">Lưu</string>
+    <string name="moi_nhat">Mới nhất</string>
+    <string name="du_lieu">Dữ liệu</string>
 
 
 </resources>

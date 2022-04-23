@@ -30,11 +30,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:text="Hôm nay, Mới nhất"
-                    style="@style/AppTheme.TextTitle"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:text="@string/moi_nhat"
+                        style="@style/AppTheme.TextTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/tvTime"
+                        style="@style/AppTheme.TextTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
 
                 <ImageView
                     android:id="@+id/iv_scale"
@@ -55,7 +68,7 @@
                         android:id="@+id/tvWeight"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="56"
+                        android:text="@string/empty_value"
                         android:textSize="40sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -76,9 +89,9 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/btnSetWeightTime"
+                android:id="@+id/btnSetWeight"
                 android:layout_gravity="center"
-                android:text="Dữ liệu"
+                android:text="@string/du_lieu"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:paddingVertical="8dp"

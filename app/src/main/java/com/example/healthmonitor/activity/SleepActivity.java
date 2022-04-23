@@ -44,6 +44,7 @@ public class SleepActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sleep);
+        setTitle("Giấc ngủ");
 
         mBarChartSleepTime = (BarChart) findViewById(R.id.bcSleepStatistics);
         mPieChartSleepTime = (PieChart) findViewById(R.id.pcSleepTime);
