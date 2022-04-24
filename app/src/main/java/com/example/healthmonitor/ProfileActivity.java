@@ -23,6 +23,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.healthmonitor.object.BMI;
 import com.example.healthmonitor.object.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -33,6 +34,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -262,12 +267,42 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     displayToast("Cập nhật tài khoản thành công!");
+                    saveBMI();
                     // redirect to profile activity
                     startActivity(new Intent(ProfileActivity.this, MainActivity.class));
                 } else {
                     displayToast("Cập nhật không thành công! Hãy kiểm tra lại thông tin!");
                 }
                 progressBar.setVisibility(View.GONE);
+            }
+        });
+    }
+
+    private void saveBMI() {
+
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        String currentDate = df.format(Calendar.getInstance().getTime());
+        DateFormat dfKey = new SimpleDateFormat("yyyyMMdd");
+        String expectedKey = dfKey.format(Calendar.getInstance().getTime());
+
+        int height = Integer.parseInt(edtHeight.getText().toString().trim());
+        float weight = Float.parseFloat(edtWeight.getText().toString().trim());
+
+        float value = weight/(((float) height/100)*((float) height/100));
+        String status;
+        if (value<18){
+            status = "Thiếu cân";
+        }else if (value<=25){
+            status = "Bình thường";
+        }else {
+            status = "Thừa cân";
+        }
+
+        BMI bmi = new BMI(value,status, currentDate);
+        mDatabase.child("BMIs").child(userID).child(expectedKey).setValue(bmi).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
             }
         });
     }
