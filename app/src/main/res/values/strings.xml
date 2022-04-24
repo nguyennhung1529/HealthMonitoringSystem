@@ -139,6 +139,8 @@
     <string name="luu">Lưu</string>
     <string name="moi_nhat">Mới nhất</string>
     <string name="du_lieu">Dữ liệu</string>
+    <string name="ly">Ly</string>
+    <string name="zero">0</string>
 
 
 </resources>
