@@ -58,7 +58,7 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_home_bmi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -66,23 +66,36 @@
                 android:layout_marginTop="24dp"
                 android:background="@drawable/layout_bg_lv1"
                 android:gravity="center_vertical"
-                android:orientation="vertical"
                 android:onClick="navigation"
+                android:orientation="vertical"
                 android:paddingVertical="28dp">
 
                 <TextView
                     android:id="@+id/tv_home_bmi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="120dp"
+                    android:layout_marginStart="80dp"
                     android:text="@string/lbl_bmi"
                     android:textColor="@color/black"
                     android:textSize="@dimen/fontsize_content_big"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            </LinearLayout>
+                <Button
+                    android:id="@+id/btn_BMI"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="50dp"
+                    android:text="@string/btn_DuLieu"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_home_weight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -90,23 +103,36 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/layout_bg_lv2"
                 android:gravity="center_vertical"
-                android:orientation="vertical"
                 android:onClick="navigation"
+                android:orientation="vertical"
                 android:paddingVertical="28dp">
 
                 <TextView
                     android:id="@+id/tv_home_weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="120dp"
+                    android:layout_marginStart="80dp"
                     android:text="@string/lbl_weight"
                     android:textColor="@color/black"
                     android:textSize="@dimen/fontsize_content_big"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            </LinearLayout>
+                <Button
+                    android:id="@+id/btn_Weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="50dp"
+                    android:text="@string/btn_DuLieu"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_home_water"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -122,15 +148,48 @@
                     android:id="@+id/tv_home_water"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="120dp"
+                    android:layout_marginStart="80dp"
                     android:text="@string/lbl_water"
                     android:textColor="@color/black"
                     android:textSize="@dimen/fontsize_content_big"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            </LinearLayout>
+                <ImageView
+                    android:id="@+id/btn_addWater"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_subWater"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_plush" />
 
-            <LinearLayout
+                <ImageView
+                    android:id="@+id/btn_subWater"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="50dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_sub" />
+
+                <TextView
+                    android:id="@+id/tv_CupsOfWater"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
+                    android:text="5 cốc"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tv_home_water"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_home_sleep"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -138,21 +197,71 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/layout_bg_lv4"
                 android:gravity="center_vertical"
-                android:orientation="vertical"
                 android:onClick="navigation"
+                android:orientation="vertical"
                 android:paddingVertical="28dp">
 
                 <TextView
                     android:id="@+id/tv_home_sleep"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="120dp"
+                    android:layout_marginStart="80dp"
                     android:text="@string/lbl_sleep"
                     android:textColor="@color/black"
                     android:textSize="@dimen/fontsize_content_big"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            </LinearLayout>
+                <Button
+                    android:id="@+id/btn_Sleep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="50dp"
+                    android:text="@string/btn_DuLieu"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_home_footsteps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/layout_bg_lv5"
+                android:gravity="center_vertical"
+                android:onClick="navigation"
+                android:orientation="vertical"
+                android:paddingVertical="28dp">
+
+                <TextView
+                    android:id="@+id/tv_counting_footsteps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="80dp"
+                    android:text="@string/lbl_footsteps"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fontsize_content_big"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btn_FootSteps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="50dp"
+                    android:text="Dữ liệu"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 
@@ -173,9 +282,9 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:contentDescription="@string/desc"
+            android:onClick="navigation"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:onClick="navigation"
             app:srcCompat="@drawable/btn_notice" />
 
         <ImageView

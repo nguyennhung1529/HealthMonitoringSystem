@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -32,6 +31,8 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(new Intent(this, WaterActivity.class));
         } else if (view.getId() == R.id.layout_home_sleep) {
             startActivity(new Intent(this, SleepActivity.class));
+        } else if (view.getId() == R.id.layout_home_footsteps) {
+            startActivity(new Intent(this, footsteps  .class));
         } else if (view.getId() == R.id.iv_btn_user) {
             startActivity(new Intent(this, MainActivity.class));
         }

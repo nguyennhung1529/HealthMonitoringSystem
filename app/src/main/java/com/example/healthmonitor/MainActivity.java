@@ -9,8 +9,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -87,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, WaterActivity.class));
         } else if (view.getId() == R.id.layout_sleep) {
             startActivity(new Intent(this, SleepActivity.class));
+        } else if (view.getId() == R.id.layout_home_footsteps) {
+            startActivity(new Intent(this, footsteps.class));
         }
     }
 
