@@ -17,7 +17,7 @@
             android:orientation="vertical">
 
             <com.github.mikephil.charting.charts.BarChart
-                android:id="@+id/barchart"
+                android:id="@+id/barchartWater"
                 android:layout_width="match_parent"
                 android:layout_height="200dp" />
 
@@ -34,11 +34,11 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <TextView
-                            style="@style/AppTheme.TextTitle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/moi_nhat" />
+<!--                        <TextView-->
+<!--                            style="@style/AppTheme.TextTitle"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="@string/hom_nay" />-->
 
                         <TextView
                             android:id="@+id/tvWaterTime"
@@ -71,11 +71,11 @@
                             android:gravity="center">
 
                             <ImageView
-                                android:id="@+id/iv_add"
+                                android:id="@+id/iv_sub"
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
-                                android:contentDescription="@string/add"
-                                app:srcCompat="@drawable/img_plush" />
+                                android:contentDescription="@string/minus"
+                                app:srcCompat="@drawable/img_sub" />
 
                             <TextView
                                 android:id="@+id/content_waterDrinked"
@@ -87,11 +87,11 @@
                                 android:textStyle="bold" />
 
                             <ImageView
-                                android:id="@+id/iv_sub"
+                                android:id="@+id/iv_add"
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
-                                android:contentDescription="@string/minus"
-                                app:srcCompat="@drawable/img_sub" />
+                                android:contentDescription="@string/add"
+                                app:srcCompat="@drawable/img_plush" />
 
                         </LinearLayout>
 

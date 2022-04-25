@@ -264,8 +264,6 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
         return super.onCreateOptionsMenu(menu);
     }
 
-
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -319,7 +317,6 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
         Log.i("Entry selected", e.toString());
         Log.i("LOW HIGH", "low: " + mLineChart.getLowestVisibleX() + ", high: " + mLineChart.getHighestVisibleX());
         Log.i("MIN MAX", "xMin: " + mLineChart.getXChartMin() + ", xMax: " + mLineChart.getXChartMax() + ", yMin: " + mLineChart.getYChartMin() + ", yMax: " + mLineChart.getYChartMax());
-
     }
 
     @Override
