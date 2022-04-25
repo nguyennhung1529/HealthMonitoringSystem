@@ -68,31 +68,41 @@
                 android:gravity="center_vertical"
                 android:onClick="navigation"
                 android:orientation="vertical"
-                android:paddingVertical="28dp">
+                android:paddingVertical="16dp">
 
                 <TextView
                     android:id="@+id/tv_home_bmi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="80dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="5dp"
                     android:text="@string/lbl_bmi"
                     android:textColor="@color/black"
                     android:textSize="@dimen/fontsize_content_big"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/img_BMI"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/btn_BMI"
+                <ImageView
+                    android:id="@+id/img_BMI"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_bmi" />
+
+                <TextView
+                    android:id="@+id/tv_home_showBMI"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="50dp"
-                    android:text="@string/btn_DuLieu"
-                    android:textColor="@color/black"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="TextView"
+                    app:layout_constraintStart_toEndOf="@+id/img_BMI"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_home_bmi" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -106,31 +116,41 @@
                 android:gravity="center_vertical"
                 android:onClick="navigation"
                 android:orientation="vertical"
-                android:paddingVertical="28dp">
+                android:paddingVertical="16dp">
 
                 <TextView
                     android:id="@+id/tv_home_weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="80dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="5dp"
                     android:text="@string/lbl_weight"
                     android:textColor="@color/black"
                     android:textSize="@dimen/fontsize_content_big"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/img_weight"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/btn_Weight"
+                <ImageView
+                    android:id="@+id/img_weight"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_balance" />
+
+                <TextView
+                    android:id="@+id/tv_home_showWeight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="50dp"
-                    android:text="@string/btn_DuLieu"
-                    android:textColor="@color/black"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="TextView"
+                    app:layout_constraintStart_toEndOf="@+id/img_weight"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_home_weight" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -144,50 +164,41 @@
                 android:gravity="center_vertical"
                 android:orientation="vertical"
                 android:onClick="navigation"
-                android:paddingVertical="28dp">
+                android:paddingVertical="16dp">
 
                 <TextView
                     android:id="@+id/tv_home_water"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="80dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="5dp"
                     android:text="@string/lbl_water"
                     android:textColor="@color/black"
                     android:textSize="@dimen/fontsize_content_big"
                     android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/img_water"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/img_water"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="30dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/btn_addWater"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="30dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/btn_subWater"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/img_plush" />
-
-                <ImageView
-                    android:id="@+id/btn_subWater"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="50dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/img_sub" />
+                    app:srcCompat="@drawable/img_water" />
 
                 <TextView
-                    android:id="@+id/tv_CupsOfWater"
+                    android:id="@+id/tv_home_showWater"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="35dp"
-                    android:text="5 cốc"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/tv_home_water"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="TextView"
+                    app:layout_constraintStart_toEndOf="@+id/img_water"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_home_water" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -201,31 +212,41 @@
                 android:gravity="center_vertical"
                 android:onClick="navigation"
                 android:orientation="vertical"
-                android:paddingVertical="28dp">
+                android:paddingVertical="16dp">
 
                 <TextView
                     android:id="@+id/tv_home_sleep"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="80dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="5dp"
                     android:text="@string/lbl_sleep"
                     android:textColor="@color/black"
                     android:textSize="@dimen/fontsize_content_big"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/img_sleep"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/btn_Sleep"
+                <ImageView
+                    android:id="@+id/img_sleep"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_clock" />
+
+                <TextView
+                    android:id="@+id/tv_home_showSleep"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="50dp"
-                    android:text="@string/btn_DuLieu"
-                    android:textColor="@color/black"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="TextView"
+                    app:layout_constraintStart_toEndOf="@+id/img_sleep"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_home_sleep" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -239,31 +260,41 @@
                 android:gravity="center_vertical"
                 android:onClick="navigation"
                 android:orientation="vertical"
-                android:paddingVertical="28dp">
+                android:paddingVertical="16dp">
 
                 <TextView
                     android:id="@+id/tv_counting_footsteps"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="80dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="5dp"
                     android:text="@string/lbl_footsteps"
                     android:textColor="@color/black"
                     android:textSize="@dimen/fontsize_content_big"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/img_footsteps"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/btn_FootSteps"
+                <ImageView
+                    android:id="@+id/img_footsteps"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_steps" />
+
+                <TextView
+                    android:id="@+id/tv_home_showFootsteps"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="50dp"
-                    android:text="Dữ liệu"
-                    android:textColor="@color/black"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="TextView"
+                    app:layout_constraintStart_toEndOf="@+id/img_footsteps"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_counting_footsteps" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

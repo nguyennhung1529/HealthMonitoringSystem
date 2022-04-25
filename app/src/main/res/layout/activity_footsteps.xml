@@ -1,57 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".footsteps">
 
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/bcFootStepsStatics"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-    
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:padding="16dp">
+        android:layout_height="match_parent"
+        android:paddingVertical="20dp">
 
-        <TextView
-            android:text="Hôm nay"
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/tv_FootStepsTime"
-            android:text="T6, 20/4"
-            android:textSize="32dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginVertical="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/textViewStepCounter"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/values"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="292dp" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textViewStepDetector"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sensor"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewStepCounter" />
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/bcFootStepsStatics"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
 
-    </LinearLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                style="@style/AppTheme.ItemContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-</LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        style="@style/AppTheme.TextTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/today" />
+
+                    <TextView
+                        android:id="@+id/tv_footsteps_date"
+                        style="@style/AppTheme.TextTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  22-04-2022
+" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iw_footstep"
+                    android:layout_width="143dp"
+                    android:layout_height="144dp"
+                    android:layout_marginTop="10dp"
+                    android:contentDescription="@string/water"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                    app:srcCompat="@drawable/img_steps" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="32dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iw_footstep">
+
+                    <TextView
+                        android:id="@+id/textViewStepCounter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/values"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewStepDetector"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/sensor"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewStepCounter" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
