@@ -145,52 +145,6 @@ public class SleepActivity extends AppCompatActivity {
 //        xAxis.setValueFormatter(new IndexAxisValueFormatter(xAxisLabel));
     }
 
-//    private ArrayList<BarDataSet> getDataSet() {
-//        ArrayList<BarDataSet> dataSets = null;
-//
-//        ArrayList<BarEntry> valueSet1 = new ArrayList<>();
-//        valueSet1.add(new BarEntry(110.000f, 0)); // Jan
-//        valueSet1.add(new BarEntry(40.000f, 1)); // Feb
-//        valueSet1.add(new BarEntry(60.000f, 2)); // Mar
-//        valueSet1.add(new BarEntry(30.000f, 3)); // Apr
-//        valueSet1.add(new BarEntry(90.000f, 4)); // May
-//        valueSet1.add(new BarEntry(100.000f, 5)); // Jun
-//
-//        ArrayList<BarEntry> valueSet2 = new ArrayList<BarEntry>();
-//        valueSet2.add(new BarEntry(150.000f, 0)); // Jan
-//        valueSet2.add(new BarEntry(90.000f, 1)); // Feb
-//        valueSet2.add(new BarEntry(120.000f, 2)); // Mar
-//        valueSet2.add(new BarEntry(60.000f, 3)); // Apr
-//        valueSet2.add(new BarEntry(20.000f, 4)); // Jun
-//        valueSet2.add(new BarEntry(80.000f, 5)); // May
-//
-//        BarDataSet barDataSet1 = new BarDataSet(valueSet1, "set data 1");
-//        barDataSet1.setColor(Color.rgb(0, 155, 0));
-//        barDataSet1.setValueTextColor(Color.BLACK);
-//        barDataSet1.setValueTextSize(16f);
-//
-//        BarDataSet barDataSet2 = new BarDataSet(valueSet2, "set data 2");
-//        barDataSet2.setColors(ColorTemplate.COLORFUL_COLORS);
-//        barDataSet2.setValueTextColor(Color.BLACK);
-//        barDataSet2.setValueTextSize(16f);
-//
-//        dataSets = new ArrayList<>();
-//        dataSets.add(barDataSet1);
-//        dataSets.add(barDataSet2);
-//        return dataSets;
-//    }
-//
-//    private ArrayList<String> getXAxisValues() {
-//        ArrayList<String> xAxisLabel = new ArrayList<String>();
-//        xAxisLabel.add("2014");
-//        xAxisLabel.add("2015");
-//        xAxisLabel.add("2016");
-//        xAxisLabel.add("2017");
-//        xAxisLabel.add("2018");
-//        xAxisLabel.add("2019");
-//        return xAxisLabel;
-//    }
-
     public void displayToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
@@ -209,18 +163,6 @@ public class SleepActivity extends AppCompatActivity {
                 return true;
             case R.id.action_home:
                 startActivity(new Intent(this, HomeActivity.class));
-                return true;
-            case R.id.action_bmi:
-                startActivity(new Intent(this, BmiActivity.class));
-                return true;
-            case R.id.action_water:
-                startActivity(new Intent(this, WaterActivity.class));
-                return true;
-            case R.id.action_weight:
-                startActivity(new Intent(this, WeightStatisticActivity.class));
-                return true;
-            case R.id.action_sleep:
-                startActivity(new Intent(this, SleepActivity.class));
                 return true;
             case R.id.action_logout:
                 AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(SleepActivity.this);

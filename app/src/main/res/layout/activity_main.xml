@@ -148,13 +148,13 @@
                                     android:textStyle="bold" />
 
                                 <TextView
+                                    android:id="@+id/tvBmiStatus"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="-2dp"
-                                    android:text="@string/chi_so_bmi"
+                                    android:text=""
                                     android:textSize="12sp"
-                                    android:textStyle="bold"
-                                    android:visibility="invisible" />
+                                    android:textStyle="bold" />
 
                                 <TextView
                                     android:layout_width="90dp"
@@ -222,7 +222,7 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/layout_water"
+                            android:id="@+id/layout_content_sleep"
                             android:background="@drawable/layout_bg_lv1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -239,7 +239,7 @@
                                 app:srcCompat="@drawable/img_clock" />
 
                             <LinearLayout
-                                android:id="@+id/layout_content_sleep"
+                                android:id="@+id/layout_sleep"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
@@ -285,7 +285,7 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:id="@+id/layout_sleep"
+                            android:id="@+id/layout_water"
                             android:background="@drawable/layout_bg_lv1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

@@ -31,10 +31,12 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(new Intent(this, WeightStatisticActivity.class));
         } else if (view.getId() == R.id.layout_home_water) {
             startActivity(new Intent(this, WaterActivity.class));
-        } else if (view.getId() == R.id.layout_home_sleep) {
-            startActivity(new Intent(this, SleepActivity.class));
+        } else if (view.getId() == R.id.layout_home_footsteps) {
+            startActivity(new Intent(this, Footsteps.class));
         } else if (view.getId() == R.id.iv_btn_user) {
             startActivity(new Intent(this, MainActivity.class));
+        } else if (view.getId() == R.id.iv_btn_notice_post) {
+            startActivity(new Intent(this, PostActivity.class));
         }
     }
 }

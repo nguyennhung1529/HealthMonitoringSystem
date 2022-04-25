@@ -14,29 +14,29 @@
         android:icon="@drawable/icon_home_white_2"
         app:showAsAction="ifRoom"/>
 
-    <item
-        android:id="@+id/action_bmi"
-        android:orderInCategory="30"
-        android:title="@string/lbl_bmi"
-        app:showAsAction="never"/>
+<!--    <item-->
+<!--        android:id="@+id/action_bmi"-->
+<!--        android:orderInCategory="30"-->
+<!--        android:title="@string/lbl_bmi"-->
+<!--        app:showAsAction="never"/>-->
 
-    <item
-        android:id="@+id/action_weight"
-        android:orderInCategory="40"
-        android:title="@string/lbl_weight"
-        app:showAsAction="never"/>
+<!--    <item-->
+<!--        android:id="@+id/action_weight"-->
+<!--        android:orderInCategory="40"-->
+<!--        android:title="@string/lbl_weight"-->
+<!--        app:showAsAction="never"/>-->
 
-    <item
-        android:id="@+id/action_water"
-        android:orderInCategory="50"
-        android:title="@string/lbl_water"
-        app:showAsAction="never"/>
+<!--    <item-->
+<!--        android:id="@+id/action_water"-->
+<!--        android:orderInCategory="50"-->
+<!--        android:title="@string/lbl_water"-->
+<!--        app:showAsAction="never"/>-->
 
-    <item
-        android:id="@+id/action_sleep"
-        android:orderInCategory="60"
-        android:title="@string/lbl_sleep"
-        app:showAsAction="never"/>
+<!--    <item-->
+<!--        android:id="@+id/action_sleep"-->
+<!--        android:orderInCategory="60"-->
+<!--        android:title="@string/lbl_sleep"-->
+<!--        app:showAsAction="never"/>-->
 
     <item
         android:id="@+id/action_post"

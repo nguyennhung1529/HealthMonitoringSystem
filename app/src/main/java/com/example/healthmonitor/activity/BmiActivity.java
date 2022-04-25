@@ -25,10 +25,12 @@ import com.example.healthmonitor.object.Data;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LimitLine;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IFillFormatter;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.dataprovider.LineDataProvider;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
@@ -41,7 +43,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class BmiActivity extends AppCompatActivity implements View.OnClickListener, OnChartValueSelectedListener {
 
@@ -61,6 +68,7 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmi);
+        setTitle("Chỉ số BMI");
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -73,32 +81,27 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
         mLineChart = findViewById(R.id.ChartBMI);
 
         btnDu_Lieu.setOnClickListener(this);
-
-        mDataUserList = new ArrayList<>();
-        showBMI();
+        showBMIList();
 
     }
 
-    private void showBMI() {
+    private void showBMIList() {
         mDatabase.child("UserDetails").child(userID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                mDataUserList = new ArrayList<>();
                 for (DataSnapshot iData : snapshot.getChildren()) {
                     mDataUserList.add(iData.getValue(Data.class));
-                    mLineChart.notifyDataSetChanged();
+                }
+                showLineChart();
+                mLineChart.notifyDataSetChanged();
 
-                    if (mDataUserList.size() != 0) {
-                        Data dateUserLastest = mDataUserList.get(mDataUserList.size() - 1);
-                        if (dateUserLastest != null) {
-                            float valueBMI = dateUserLastest.getWeight() / (((float) dateUserLastest.getHeight() / 100) * ((float) dateUserLastest.getHeight() / 100));
-                            String statusBMI = (valueBMI<18) ? "Thiếu cân" : ((valueBMI<=25) ? "Bình thường" : "Thừa cân");
-
-                            tvBMI.setText(String.format("%.2f", valueBMI));
-                            tvBmiDate.setText(", " + dateUserLastest.getDate());
-                            tvStatus.setText(statusBMI);
-                        }
+                // First time access activity Water => get water data of time max
+                if (mDataUserList.size() > 0) {
+                    if (tvBmiDate.getText().toString().equals("")) {
+                        String key = dateToKey(mDataUserList.get(mDataUserList.size() - 1).getDate());
+                        getUserDetail(key);
                     }
-                    showLineChart();
                 }
             }
 
@@ -108,69 +111,128 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
         });
     }
 
-    private void showLineChart() {
-        {
-            {   // // Chart Style // //
+    private void getUserDetail(String key) {
+        mDatabase.child("UserDetails").child(userID).child(key).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Data userDetail = snapshot.getValue(Data.class);
+                if (userDetail != null) {
+                    float valueBMI = userDetail.getWeight() / (((float) userDetail.getHeight() / 100) * ((float) userDetail.getHeight() / 100));
+                    String statusBMI = (valueBMI < 18) ? "Thiếu cân" : ((valueBMI <= 25) ? "Bình thường" : "Thừa cân");
 
-                mLineChart.setBackgroundColor(Color.WHITE); // background color
+                    tvBMI.setText(String.format("%.2f", valueBMI));
+                    tvStatus.setText(statusBMI);
 
-                // disable description text
-                mLineChart.getDescription().setEnabled(false);
-
-                // enable touch gestures
-                mLineChart.setTouchEnabled(true);
-
-                // set listeners
-                mLineChart.setOnChartValueSelectedListener(this);
-                mLineChart.setDrawGridBackground(false);
-
-                // create marker to display box when values are selected
-                MyMarkerView mv = new MyMarkerView(this, R.layout.custom_marker_view);
-
-                // Set the marker to the chart
-                mv.setChartView(mLineChart);
-                mLineChart.setMarker(mv);
-
-                // enable scaling and dragging
-                mLineChart.setDragEnabled(true);
-                mLineChart.setScaleEnabled(true);
-
-                // force pinch zoom along both axis
-                mLineChart.setPinchZoom(true);
+                    if (dateTypeToDateString(Calendar.getInstance().getTime()).equals(userDetail.getDate()))
+                        tvBmiDate.setText("Hôm nay, " + userDetail.getDate());
+                    else
+                        tvBmiDate.setText(userDetail.getDate());
+                }
             }
 
-            {   // // Create Limit Lines // //
-                LimitLine llXAxis = new LimitLine(9f, "Index 10");
-                llXAxis.setLineWidth(4f);
-                llXAxis.enableDashedLine(10f, 10f, 0f);
-                llXAxis.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_BOTTOM);
-                llXAxis.setTextSize(10f);
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-                LimitLine ll1 = new LimitLine(150f, "Upper Limit");
-                ll1.setLineWidth(4f);
-                ll1.enableDashedLine(10f, 10f, 0f);
-                ll1.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_TOP);
-                ll1.setTextSize(10f);
+            }
+        });
+    }
 
-                LimitLine ll2 = new LimitLine(-30f, "Lower Limit");
-                ll2.setLineWidth(4f);
-                ll2.enableDashedLine(10f, 10f, 0f);
-                ll2.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_BOTTOM);
-                ll2.setTextSize(10f);
+    private void getUserDetailByIndex(int idx) {
+        mDatabase.child("UserDetails").child(userID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Data userDetail = null;
+                int i = 0;
+                for (DataSnapshot iData : snapshot.getChildren()) {
+                    if (i == idx) {
+                        userDetail = iData.getValue(Data.class);
+                        break;
+                    }
+                    i++;
+                }
+
+                if (userDetail != null) {
+                    float valueBMI = userDetail.getWeight() / (((float) userDetail.getHeight() / 100) * ((float) userDetail.getHeight() / 100));
+                    String statusBMI = (valueBMI < 18) ? "Thiếu cân" : ((valueBMI <= 25) ? "Bình thường" : "Thừa cân");
+
+                    tvBMI.setText(String.format("%.2f", valueBMI));
+                    tvStatus.setText(statusBMI);
+
+                    if (dateTypeToDateString(Calendar.getInstance().getTime()).equals(userDetail.getDate()))
+                        tvBmiDate.setText("Hôm nay, " + userDetail.getDate());
+                    else
+                        tvBmiDate.setText(userDetail.getDate());
+                }
             }
 
-            // add data
-            setData();
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-            // draw points over time
-            mLineChart.animateX(1500);
+            }
+        });
+    }
 
-            // get the legend (only possible after setting data)
-            Legend l = mLineChart.getLegend();
+    private ArrayList<String> getLabelsChart() {
+        ArrayList<String> labels = new ArrayList<>();
 
-            // draw legend entries as lines
-            l.setForm(Legend.LegendForm.LINE);
+        for (int i = 0; i < mDataUserList.size(); i++) {
+            String val = mDataUserList.get(i).getDate();
+            String dd = val.split("/")[0];
+            labels.add(dd);
         }
+
+        return labels;
+    }
+
+    public void showLineChart() {
+        {   // // Chart Style // //
+
+            mLineChart.setBackgroundColor(Color.WHITE); // background color
+
+            // disable description text
+            mLineChart.getDescription().setEnabled(false);
+
+            // enable touch gestures
+            mLineChart.setTouchEnabled(true);
+
+            // set listeners
+            mLineChart.setOnChartValueSelectedListener(this);
+            mLineChart.setDrawGridBackground(false);
+
+            // create marker to display box when values are selected
+            MyMarkerView mv = new MyMarkerView(this, R.layout.custom_marker_view);
+
+            // Set the marker to the chart
+            mv.setChartView(mLineChart);
+            mLineChart.setMarker(mv);
+
+            // enable scaling and dragging
+            mLineChart.setDragEnabled(true);
+            mLineChart.setScaleEnabled(true);
+
+            // force pinch zoom along both axis
+            mLineChart.setPinchZoom(true);
+
+            // set clicked/touckedable
+            mLineChart.setClickable(true);
+            mLineChart.setTouchEnabled(true);
+            mLineChart.setHighlightPerTapEnabled(true);
+        }
+
+        // add data
+        setData();
+
+        // draw points over time
+        mLineChart.animateX(1500);
+
+        // get the legend (only possible after setting data)
+        Legend l = mLineChart.getLegend();
+
+        // draw legend entries as lines
+        l.setForm(Legend.LegendForm.LINE);
+
+        // on selected listener
+        mLineChart.setOnChartValueSelectedListener(this);
     }
 
     private void setData() {
@@ -180,7 +242,7 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
             Data data = mDataUserList.get(i);
 
             float valueBMI = data.getWeight() / (((float) data.getHeight() / 100) * ((float) data.getHeight() / 100));
-            values.add(new Entry(i, valueBMI));
+            values.add(new Entry(i, valueBMI, getResources().getDrawable(R.drawable.star)));
         }
 
         LineDataSet set1;
@@ -194,7 +256,7 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
             mLineChart.notifyDataSetChanged();
         } else {
             // create a dataset and give it a type
-            set1 = new LineDataSet(values, "DataSet 1");
+            set1 = new LineDataSet(values, "Chỉ số BMI");
 
             set1.setDrawIcons(false);
 
@@ -249,6 +311,16 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
 
             // set data
             mLineChart.setData(data);
+
+            ArrayList<String> labels = getLabelsChart();
+
+            // set labels
+            XAxis xAxis = mLineChart.getXAxis();
+
+            xAxis.setValueFormatter(new IndexAxisValueFormatter(labels));
+            xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+            xAxis.setGranularity(1f); // only intervals of 1 day
+            xAxis.setLabelCount(7);
         }
 
     }
@@ -272,18 +344,6 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
                 return true;
             case R.id.action_home:
                 startActivity(new Intent(this, HomeActivity.class));
-                return true;
-            case R.id.action_bmi:
-                startActivity(new Intent(this, BmiActivity.class));
-                return true;
-            case R.id.action_water:
-                startActivity(new Intent(this, WaterActivity.class));
-                return true;
-            case R.id.action_weight:
-                startActivity(new Intent(this, WeightActivity.class));
-                return true;
-            case R.id.action_sleep:
-                startActivity(new Intent(this, SleepActivity.class));
                 return true;
             case R.id.action_logout:
                 AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(BmiActivity.this);
@@ -314,13 +374,55 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onValueSelected(Entry e, Highlight h) {
-        Log.i("Entry selected", e.toString());
-        Log.i("LOW HIGH", "low: " + mLineChart.getLowestVisibleX() + ", high: " + mLineChart.getHighestVisibleX());
-        Log.i("MIN MAX", "xMin: " + mLineChart.getXChartMin() + ", xMax: " + mLineChart.getXChartMax() + ", yMin: " + mLineChart.getYChartMin() + ", yMax: " + mLineChart.getYChartMax());
+        int indexUserDetail = (int) e.getX();
+        getUserDetailByIndex(indexUserDetail);
     }
 
     @Override
     public void onNothingSelected() {
+        Log.i("Nothing selected", "Nothing selected.");
+    }
 
+    public String keyToDate(String key) {
+        String date = "";
+
+        DateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormat formatKey = new SimpleDateFormat("yyyyMMdd");
+
+        Date d = null;
+        try {
+            d = formatKey.parse(key);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        if (d != null) {
+            date = formatDate.format(d);
+        }
+
+        return date;
+    }
+
+    public String dateToKey(String date) {
+        String key = "";
+
+        DateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormat formatKey = new SimpleDateFormat("yyyyMMdd");
+
+        Date d = null;
+        try {
+            d = formatDate.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        if (d != null) {
+            key = formatKey.format(d);
+        }
+
+        return key;
+    }
+
+    public String dateTypeToDateString(Date date) {
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        return df.format(date);
     }
 }

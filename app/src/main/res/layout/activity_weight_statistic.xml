@@ -35,11 +35,11 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:text="@string/moi_nhat"
-                        style="@style/AppTheme.TextTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+<!--                    <TextView-->
+<!--                        android:text="@string/moi_nhat"-->
+<!--                        style="@style/AppTheme.TextTitle"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"/>-->
                     <TextView
                         android:id="@+id/tvTime"
                         style="@style/AppTheme.TextTitle"

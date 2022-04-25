@@ -154,18 +154,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.action_home:
                 startActivity(new Intent(this, HomeActivity.class));
                 return true;
-            case R.id.action_bmi:
-                startActivity(new Intent(this, BmiActivity.class));
-                return true;
-            case R.id.action_water:
-                startActivity(new Intent(this, WaterActivity.class));
-                return true;
-            case R.id.action_weight:
-                startActivity(new Intent(this, WeightStatisticActivity.class));
-                return true;
-            case R.id.action_sleep:
-                startActivity(new Intent(this, SleepActivity.class));
-                return true;
             case R.id.action_logout:
                 AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(ProfileActivity.this);
                 myAlertBuilder.setTitle("Thông báo!");

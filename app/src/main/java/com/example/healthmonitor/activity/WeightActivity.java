@@ -27,8 +27,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Objects;
 
 public class WeightActivity extends AppCompatActivity implements View.OnClickListener {
@@ -65,13 +67,8 @@ public class WeightActivity extends AppCompatActivity implements View.OnClickLis
         npWeightHead = findViewById(R.id.npWeightHead);
         npWeightTail = findViewById(R.id.npWeightTail);
 
-//        String[] nums = new String[700];
-//        for(int i=2; i<nums.length; i++)
-//            nums[i] = Integer.toString(i);
-
         npWeightHead.setMinValue(2);
         npWeightHead.setMaxValue(700);
-//        npWeightHead.setDisplayedValues(nums);
         npWeightHead.setValue(50);
 
         npWeightTail.setMinValue(0);
@@ -85,35 +82,33 @@ public class WeightActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void showWeightDetail() {
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        String currentDate = df.format(Calendar.getInstance().getTime());
-        DateFormat dfKey = new SimpleDateFormat("yyyyMMdd");
-        String expectedKey = dfKey.format(Calendar.getInstance().getTime());
-        Data userDetailsLastest = getUserDetails();
-
+        String currentDate = dateTypeToDateString(Calendar.getInstance().getTime());
+        String expectedKey = dateToKey(currentDate);
+        
         tvWeightDate.setText(currentDate);
 
-        mDatabase.child("UserDetails").child(userID).child(expectedKey).addListenerForSingleValueEvent(new ValueEventListener() {
+        // get lastest user details
+        mDatabase.child("UserDetails").child(userID).orderByKey().limitToLast(1).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Data userDetails = snapshot.getValue(Data.class);
-                String[] arrWeight;
-                if (userDetails != null) {
-                    //tvWeightDate.setText(weight.getDate());
-                    edtNote.setText(userDetails.getNote() != null ? userDetails.getNote() : null);
-
-                    arrWeight = String.valueOf(userDetails.getWeight()).split("\\.");
-//                        displayToast(weight.toString());
-                } else {
-                    arrWeight = String.valueOf(userDetailsLastest.getWeight()).split("\\.");
+                Data userDetailsLastest = null;
+                for (DataSnapshot iData : snapshot.getChildren()) {
+                    userDetailsLastest = iData.getValue(Data.class);
                 }
-                npWeightHead.setValue(Integer.parseInt(arrWeight[0]));
-                npWeightTail.setValue(Integer.parseInt(arrWeight[1]));
+
+                if (userDetailsLastest != null) {
+                    String[] arrWeight = String.valueOf(userDetailsLastest.getWeight()).split("\\.");
+                    npWeightHead.setValue(Integer.parseInt(arrWeight[0]));
+                    npWeightTail.setValue(Integer.parseInt(arrWeight[1]));
+                    
+                    if (currentDate.equals(userDetailsLastest.getDate())) {
+                        edtNote.setText(userDetailsLastest.getNote() != null ? userDetailsLastest.getNote() : null);
+                    }
+                }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
     }
@@ -150,6 +145,7 @@ public class WeightActivity extends AppCompatActivity implements View.OnClickLis
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+
         return userDetails;
     }
 
@@ -157,77 +153,40 @@ public class WeightActivity extends AppCompatActivity implements View.OnClickLis
         int weightHead = npWeightHead.getValue();
         int weightTail = npWeightTail.getValue();
         float currentWeight = Float.valueOf(String.valueOf(weightHead) + "."  + String.valueOf(weightTail));
-        String note = edtNote.getText().toString();
-        String date = tvWeightDate.getText().toString();
-        Data userDetailsLastest = getUserDetails();
+        String currentNote = edtNote.getText().toString();
+        String currentDate = tvWeightDate.getText().toString();
+        String key = dateToKey(currentDate);
 
-//        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-//        String date = df.format(Calendar.getInstance().getTime());
-//
-////        displayToast(String.valueOf(date));
-        DateFormat dfKey = new SimpleDateFormat("yyyyMMdd");
-        String key = dfKey.format(Calendar.getInstance().getTime());
-
-        Data userDetails = new Data(userDetailsLastest.getHeight(), currentWeight, note, date);
-        mDatabase.child("UserDetails").child(userID).child(key).setValue(userDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
+        mDatabase.child("UserDetails").child(userID).orderByKey().limitToLast(1).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    // redirect to profile activity
-                    startActivity(new Intent(WeightActivity.this, WeightStatisticActivity.class));
-                } else {
-                    displayToast("Cập nhật không thành công!");
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot iData : snapshot.getChildren()) {
+                    Data userDetailsLastest = iData.getValue(Data.class);
+                    if (userDetailsLastest != null) {
+                        // save weight
+                        Data dataUser = new Data(userDetailsLastest.getHeight(), currentWeight, currentNote, currentDate);
+                        mDatabase.child("UserDetails").child(userID).child(key).setValue(dataUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    // redirect to profile activity
+                                    startActivity(new Intent(WeightActivity.this, WeightStatisticActivity.class));
+                                } else {
+                                    displayToast("Cập nhật không thành công!");
+                                }
+                            }
+                        });
+                    }
                 }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
             }
         });
 
-//        try {
-//            Date date = df.parse(datetime);
-//            System.out.println(date);
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
+
     }
-
-//    private void saveBMI(Float weight, String date, String key) {
-//
-//        int height = Integer.parseInt(edtHeight.getText().toString().trim());
-//        float weight = Float.parseFloat(edtWeight.getText().toString().trim());
-//
-//        float value = weight/(((float) height/100)*((float) height/100));
-//        String status;
-//        if (value<18){
-//            status = "Thiếu cân";
-//        }else if (value<=25){
-//            status = "Bình thường";
-//        }else {
-//            status = "Thừa cân";
-//        }
-//
-//        BMI bmi = new BMI(value,status, date);
-//        mDatabase.child("BMIs").child(userID).child(key).setValue(bmi).addOnCompleteListener(new OnCompleteListener<Void>() {
-//            @Override
-//            public void onComplete(@NonNull Task<Void> task) {
-//
-//            }
-//        });
-//    }
-
-//    private void getHeightUser() {
-//        mDatabase.child("Users").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                User userProfile = snapshot.getValue(User.class);
-//                if ()
-//                int height = userProfile.getHeight();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Log.w(TAG, "loadUser:onCancelled", error.toException());
-//            }
-//        });
-//    }
 
     public void displayToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
@@ -247,18 +206,6 @@ public class WeightActivity extends AppCompatActivity implements View.OnClickLis
                 return true;
             case R.id.action_home:
                 startActivity(new Intent(this, HomeActivity.class));
-                return true;
-            case R.id.action_bmi:
-                startActivity(new Intent(this, BmiActivity.class));
-                return true;
-            case R.id.action_water:
-                startActivity(new Intent(this, WaterActivity.class));
-                return true;
-            case R.id.action_weight:
-                startActivity(new Intent(this, WeightStatisticActivity.class));
-                return true;
-            case R.id.action_sleep:
-                startActivity(new Intent(this, SleepActivity.class));
                 return true;
             case R.id.action_logout:
                 AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(WeightActivity.this);
@@ -280,6 +227,49 @@ public class WeightActivity extends AppCompatActivity implements View.OnClickLis
                 // Do nothing
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public String keyToDate(String key) {
+        String date = "";
+
+        DateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormat formatKey = new SimpleDateFormat("yyyyMMdd");
+
+        Date d = null;
+        try {
+            d = formatKey.parse(key);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        if (d != null) {
+            date = formatDate.format(d);
+        }
+
+        return date;
+    }
+
+    public String dateToKey(String date) {
+        String key = "";
+
+        DateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormat formatKey = new SimpleDateFormat("yyyyMMdd");
+
+        Date d = null;
+        try {
+            d = formatDate.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        if (d != null) {
+            key = formatKey.format(d);
+        }
+
+        return key;
+    }
+
+    public String dateTypeToDateString(Date date) {
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        return df.format(date);
     }
 
 }

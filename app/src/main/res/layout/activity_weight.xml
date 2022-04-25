@@ -18,7 +18,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:text="@string/ghi_lai_can_nang"
+                android:text="@string/nhap_du_lieu_can_nang"
                 style="@style/AppTheme.TextTitleHeading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

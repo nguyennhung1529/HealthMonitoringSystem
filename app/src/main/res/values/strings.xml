@@ -142,6 +142,9 @@
     <string name="ly">Ly</string>
     <string name="zero">0</string>
     <string name="hom_nay">Hôm nay</string>
+    <string name="nhap_du_lieu_can_nang">Nhập dữ liệu cân nặng</string>
+    <string name="buoc">Bước</string>
+    <string name="buoc_chan">Bước chân</string>
 
 
 </resources>

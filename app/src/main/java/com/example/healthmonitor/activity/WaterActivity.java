@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,11 +17,9 @@ import android.widget.Toast;
 
 import com.example.healthmonitor.R;
 import com.example.healthmonitor.custom.MyMarkerView;
-import com.example.healthmonitor.object.Data;
 import com.example.healthmonitor.object.Water;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
@@ -58,7 +55,6 @@ public class WaterActivity extends AppCompatActivity implements View.OnClickList
     private ImageView iv_add, iv_sub;
 
     private ArrayList<Water> mWaterList;
-    private ArrayList<String> mKeyList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,58 +65,11 @@ public class WaterActivity extends AppCompatActivity implements View.OnClickList
         mDatabase = FirebaseDatabase.getInstance().getReference();
         userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        mKeyList = new ArrayList<>();
 
         initUI();
         initListener();
         // get list data water => show in diagram
         showWaterList();
-
-//        mDatabase.child("Waters").child(userID).orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot iWater : snapshot.getChildren()) {
-//                    mKeyList.add(iWater.getKey());
-//                }
-//                String key = mKeyList.get(mKeyList.size() - 1);
-//                getWater(key);
-//                showWaterList();
-//
-//                iv_add.setOnClickListener(view -> {
-//                    int valueWater = Integer.parseInt(tvWater.getText().toString());
-//                    String luongNuoc = "(0 ml)";
-//
-//                    valueWater = valueWater + 1;
-//                    luongNuoc = String.valueOf(valueWater * 250);
-//
-//                    tvWater.setText(String.valueOf(valueWater));
-//                    tvLuongNuocMl.setText("(" + luongNuoc + " ml)");
-//
-//                    saveWater(key);
-//                });
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-
-//        mBarChart.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View view, MotionEvent motionEvent) {
-//                System.out.println("Hello2");
-//                return false;
-//            }
-//        });
-//        mBarChart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                System.out.println("getMarkerContent = " + view.getId());
-//
-//            }
-//        });
     }
 
     private void initUI() {
@@ -136,28 +85,6 @@ public class WaterActivity extends AppCompatActivity implements View.OnClickList
         iv_add.setOnClickListener(this);
         iv_sub.setOnClickListener(this);
     }
-
-//    private void showWater() {
-//        if (mWaterList.size() > 0) {
-//            Water water = mWaterList.get(mWaterList.size() - 1);
-//            tvWater.setText(water.getValue());
-//        }
-//    }
-//    private void getAllKeyWater() {
-//        mDatabase.child("Waters").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot iWater : snapshot.getChildren()) {
-//                    mKeyList.add(iWater.getKey());
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//    }
 
     private void getWater(String key) {
         mDatabase.child("Waters").child(userID).child(key).addValueEventListener(new ValueEventListener() {
@@ -222,9 +149,11 @@ public class WaterActivity extends AppCompatActivity implements View.OnClickList
                 mWaterList = new ArrayList<>();
                 for (DataSnapshot iWater : snapshot.getChildren()) {
                     mWaterList.add(iWater.getValue(Water.class));
-                    mBarChart.notifyDataSetChanged();
-                    showBarChart();
-                    // First time access activity Water => get water data of time max
+                }
+                mBarChart.notifyDataSetChanged();
+                showBarChart();
+                // First time access activity Water => get water data of time max
+                if (mWaterList.size() > 0) {
                     if (tvWaterTime.getText().toString().equals("")) {
                         String key = dateToKey(mWaterList.get(mWaterList.size() - 1).getDate());
                         getWater(key);
@@ -333,7 +262,6 @@ public class WaterActivity extends AppCompatActivity implements View.OnClickList
         // enable scaling and dragging
         mBarChart.setDragEnabled(true);
         mBarChart.setScaleEnabled(true);
-        mBarChart.setHighlightPerTapEnabled(true);
 
         // force pinch zoom along both axis
         mBarChart.setPinchZoom(true);
@@ -343,8 +271,11 @@ public class WaterActivity extends AppCompatActivity implements View.OnClickList
         mBarChart.getDescription().setText("Bar chart example");
         mBarChart.getDescription().setPosition(3f, 3f);
         mBarChart.animateY(1500);
+
+        // set clicked/touckedable
         mBarChart.setClickable(true);
         mBarChart.setTouchEnabled(true);
+        mBarChart.setHighlightPerTapEnabled(true);
 
         mBarChart.getData().notifyDataChanged();
         mBarChart.notifyDataSetChanged();
@@ -359,9 +290,6 @@ public class WaterActivity extends AppCompatActivity implements View.OnClickList
         l.setTextSize(11f);
         l.setXEntrySpace(4f);
 
-//        mBarChart.getAxisRight().setDrawGridLines(false);
-//        mBarChart.getAxisLeft().setDrawGridLines(false);
-//        mBarChart.getXAxis().setDrawGridLines(false);
         XAxis xAxis = mBarChart.getXAxis();
 
         xAxis.setValueFormatter(new IndexAxisValueFormatter(labels));
@@ -393,18 +321,6 @@ public class WaterActivity extends AppCompatActivity implements View.OnClickList
                 return true;
             case R.id.action_home:
                 startActivity(new Intent(this, HomeActivity.class));
-                return true;
-            case R.id.action_bmi:
-                startActivity(new Intent(this, BmiActivity.class));
-                return true;
-            case R.id.action_water:
-                startActivity(new Intent(this, WaterActivity.class));
-                return true;
-            case R.id.action_weight:
-                startActivity(new Intent(this, WeightStatisticActivity.class));
-                return true;
-            case R.id.action_sleep:
-                startActivity(new Intent(this, SleepActivity.class));
                 return true;
             case R.id.action_logout:
                 AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(WaterActivity.this);
