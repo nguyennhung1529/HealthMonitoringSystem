@@ -22,7 +22,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:text="Hôm nay"
+            android:text="@string/hom_nay"
             style="@style/AppTheme.TextTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -30,7 +30,7 @@
         <TextView
             android:id="@+id/tvSleepTime"
             android:text="T6, 22/4"
-            android:textSize="32dp"
+            android:textSize="32sp"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_marginVertical="8dp"
@@ -47,8 +47,8 @@
     <TextView
         android:id="@+id/btnSetSleepTime"
         android:layout_gravity="center"
-        android:text="Ghi thủ công"
-        android:textSize="18dp"
+        android:text="@string/ghi_thu_cong"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:paddingVertical="8dp"
         android:paddingHorizontal="16dp"
