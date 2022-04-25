@@ -133,6 +133,8 @@
     <string name="du_lieu">Dữ liệu</string>
     <string name="ly">ly</string>
     <string name="moi_nhat">Mới nhất</string>
+    <string name="values">value</string>
+    <string name="sensor">sensor</string>
 
 
 </resources>
