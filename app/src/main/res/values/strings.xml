@@ -110,7 +110,6 @@
     //trang chủ
     <string name="lbl_footsteps">Bước chân</string>
     <string name="values">TextView</string>
-    <string name="values">TextView</string>
     <string name="sensor">sensor</string>
     <string name="btn_DuLieu">Dữ liệu</string>
 </resources>
