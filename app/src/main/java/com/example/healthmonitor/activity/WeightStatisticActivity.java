@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
@@ -15,13 +14,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.healthmonitor.R;
 import com.example.healthmonitor.custom.MyMarkerView;
-import com.example.healthmonitor.object.Weight;
+import com.example.healthmonitor.object.Data;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LimitLine;
@@ -47,7 +45,7 @@ public class WeightStatisticActivity extends AppCompatActivity implements View.O
 
     private DatabaseReference mDatabase;
     private String userID;
-    private ArrayList<Weight> mWeightList;
+    private ArrayList<Data> mDataUserList;
 
 
     private LineChart mLineChart;
@@ -62,31 +60,26 @@ public class WeightStatisticActivity extends AppCompatActivity implements View.O
         mDatabase = FirebaseDatabase.getInstance().getReference();
         userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        mWeightList = new ArrayList<>();
+        mDataUserList = new ArrayList<>();
 
         initUI();
         initListener();
-//        getWeights();
-//        showLineChart();
-//        showWeight();
 
-        mDatabase.child("Weights").child(userID).addValueEventListener(new ValueEventListener() {
+        mDatabase.child("UserDetails").child(userID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot iWeight : snapshot.getChildren()) {
-                    mWeightList.add(iWeight.getValue(Weight.class));
+                for (DataSnapshot iData : snapshot.getChildren()) {
+                    mDataUserList.add(iData.getValue(Data.class));
                     mLineChart.notifyDataSetChanged();
 
-                    if (mWeightList.size() != 0) {
-                        Weight weight = mWeightList.get(mWeightList.size() - 1);
-                        if (weight != null) {
-                            tvWeight.setText(String.valueOf(weight.getWeight()));
-                            tvTime.setText(", " + weight.getDate());
+                    if (mDataUserList.size() != 0) {
+                        Data dateUserLastest = mDataUserList.get(mDataUserList.size() - 1);
+                        if (dateUserLastest != null) {
+                            tvWeight.setText(String.valueOf(dateUserLastest.getWeight()));
+                            tvTime.setText(", " + dateUserLastest.getDate());
                         }
                     }
-
                     showLineChart();
-
                 }
             }
 
@@ -199,8 +192,8 @@ public class WeightStatisticActivity extends AppCompatActivity implements View.O
 
     public void showLineChart() {
         {   // // Chart Style // //
-            // background color
-            mLineChart.setBackgroundColor(Color.WHITE);
+
+            mLineChart.setBackgroundColor(Color.WHITE); // background color
 
             // disable description text
             mLineChart.getDescription().setEnabled(false);
@@ -264,8 +257,8 @@ public class WeightStatisticActivity extends AppCompatActivity implements View.O
 
         ArrayList<Entry> values = new ArrayList<>();
 
-        for (int i = 0; i < mWeightList.size(); i++) {
-            float val = (float) mWeightList.get(i).getWeight();
+        for (int i = 0; i < mDataUserList.size(); i++) {
+            float val = (float) mDataUserList.get(i).getWeight();
             values.add(new Entry(i, val, getResources().getDrawable(R.drawable.star)));
         }
 

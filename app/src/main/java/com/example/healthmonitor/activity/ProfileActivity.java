@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.healthmonitor.R;
+import com.example.healthmonitor.object.Data;
 import com.example.healthmonitor.object.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -32,6 +33,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Objects;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -44,6 +50,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private RadioGroup radGrpGender;
     private Button btnUpdateProfile;
     private TextView tvSkip;
+    private Data userDetails;
 
     private ProgressBar progressBar;
 
@@ -56,9 +63,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         mDatabase = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
         userID = user.getUid();
+        userDetails = new Data();
 
         initUI();
         initListener();
+        getUserDetails();
 
         // Read user profile
         showUserProfile();
@@ -74,6 +83,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userProfile = snapshot.getValue(User.class);
+                getUserDetails();
 
                 if (userProfile != null) {
                     edtName.setText(userProfile.getName().toString());
@@ -82,11 +92,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     if (userProfile.getAge() != 0) {
                         edtAge.setText(String.valueOf(userProfile.getAge()));
                     }
-                    if (userProfile.getHeight() != 0) {
-                        edtHeight.setText(String.valueOf(userProfile.getHeight()));
+                    if (userDetails.getHeight() != 0) {
+                        edtHeight.setText(String.valueOf(userDetails.getHeight()));
                     }
-                    if (userProfile.getWeight() != 0) {
-                        edtWeight.setText(String.valueOf(userProfile.getWeight()));
+                    if (userDetails.getWeight() != 0) {
+                        edtWeight.setText(String.valueOf(userDetails.getWeight()));
                     }
                     if (userProfile.getGender() == 1) {
                         radMale.setChecked(true);
@@ -190,6 +200,22 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+    private void getUserDetails() {
+        mDatabase.child("UserDetails").child(userID).orderByKey().limitToLast(1).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot iData : snapshot.getChildren()) {
+                    if (iData.getValue(Data.class) != null) {
+                        userDetails = Objects.requireNonNull(iData.getValue(Data.class));
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
+
     private void updateProfileUser() {
         String name = edtName.getText().toString().trim();
         String email = edtEmail.getText().toString().trim();
@@ -253,21 +279,41 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         int height = Integer.parseInt(edtHeight.getText().toString().trim());
         float weight = Float.parseFloat(edtWeight.getText().toString().trim());
         int gender = (radMale.isChecked()) ? 1 : 0;
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        String currentDate = df.format(Calendar.getInstance().getTime());
+        DateFormat dfKey = new SimpleDateFormat("yyyyMMdd");
+        String key = dfKey.format(Calendar.getInstance().getTime());
 
         progressBar.setVisibility(View.VISIBLE);
         // update user profile
-        User user = new User(name, email, age, height, weight, gender);
+        saveUser(name, email, age, gender, weight, height, currentDate, key);
+    }
+
+    public void saveUser(String name, String email, int age, int gender, float weight, int height, String currentDate, String key) {
+        User user = new User(name, email, age, gender);
         mDatabase.child("Users").child(userID).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    displayToast("Cập nhật tài khoản thành công!");
+                    saveUserDetails(height, weight, "", currentDate, key);
                     // redirect to profile activity
                     startActivity(new Intent(ProfileActivity.this, MainActivity.class));
                 } else {
                     displayToast("Cập nhật không thành công! Hãy kiểm tra lại thông tin!");
                 }
                 progressBar.setVisibility(View.GONE);
+            }
+        });
+    }
+
+    public void saveUserDetails(int height, float weight, String note, String currentDate, String key) {
+        Data userData = new Data(height, weight, "", currentDate);
+        mDatabase.child("UserDetails").child(userID).child(key).setValue(userData).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (!task.isSuccessful()) {
+                    displayToast("Cập nhật không thành công!");
+                }
             }
         });
     }

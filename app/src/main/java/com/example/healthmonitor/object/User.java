@@ -2,8 +2,7 @@ package com.example.healthmonitor.object;
 
 public class User {
     private String name, email;
-    private int age, height, gender;
-    private float weight;
+    private int age, gender;
 
     public User() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
@@ -18,15 +17,6 @@ public class User {
         this.name = name;
         this.email = email;
         this.age = age;
-        this.gender = gender;
-    }
-
-    public User(String name, String email, int age, int height, float weight, int gender) {
-        this.name = name;
-        this.email = email;
-        this.age = age;
-        this.height = height;
-        this.weight = weight;
         this.gender = gender;
     }
 
@@ -54,22 +44,6 @@ public class User {
         this.age = age;
     }
 
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public float getWeight() {
-        return weight;
-    }
-
-    public void setWeight(float weight) {
-        this.weight = weight;
-    }
-
     public int getGender() {
         return gender;
     }
@@ -84,9 +58,7 @@ public class User {
                 "name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", age=" + age +
-                ", height=" + height +
                 ", gender=" + gender +
-                ", weight=" + weight +
                 '}';
     }
 }

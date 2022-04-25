@@ -1,24 +1,26 @@
 package com.example.healthmonitor.object;
 
-import java.util.Date;
-
-public class Weight {
+public class Data {
     private float weight;
-    private String date;
+    private int height;
     private String note;
+    private String date;
 
-    public Weight() {
+    public Data() {
     }
 
-    public Weight(float weight, String date) {
-        this.weight = weight;
-        this.date = date;
-    }
-
-    public Weight(float weight, String date, String note) {
+    public Data(int height, float weight, String note, String date) {
         this.weight = weight;
         this.date = date;
         this.note = note;
+        this.height = height;
+    }
+
+    public void setData(Data userDetails) {
+        this.weight = userDetails.getWeight();
+        this.date = userDetails.getDate();
+        this.note = userDetails.getNote();
+        this.height = userDetails.getHeight();
     }
 
     public float getWeight() {
@@ -45,12 +47,21 @@ public class Weight {
         this.note = note;
     }
 
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
     @Override
     public String toString() {
-        return "Weight{" +
+        return "Data{" +
                 "weight=" + weight +
                 ", date='" + date + '\'' +
                 ", note='" + note + '\'' +
+                ", height=" + height +
                 '}';
     }
 }

@@ -1,5 +1,6 @@
 package com.example.healthmonitor.activity;
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.healthmonitor.R;
-import com.example.healthmonitor.object.Weight;
+import com.example.healthmonitor.object.Data;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Objects;
 
 public class WeightActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -87,22 +89,26 @@ public class WeightActivity extends AppCompatActivity implements View.OnClickLis
         String currentDate = df.format(Calendar.getInstance().getTime());
         DateFormat dfKey = new SimpleDateFormat("yyyyMMdd");
         String expectedKey = dfKey.format(Calendar.getInstance().getTime());
+        Data userDetailsLastest = getUserDetails();
 
         tvWeightDate.setText(currentDate);
 
-        mDatabase.child("Weights").child(userID).child(expectedKey).addListenerForSingleValueEvent(new ValueEventListener() {
+        mDatabase.child("UserDetails").child(userID).child(expectedKey).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Weight weight = snapshot.getValue(Weight.class);
-                if (weight != null) {
+                Data userDetails = snapshot.getValue(Data.class);
+                String[] arrWeight;
+                if (userDetails != null) {
                     //tvWeightDate.setText(weight.getDate());
-                    edtNote.setText(weight.getNote() != null ? weight.getNote() : null);
+                    edtNote.setText(userDetails.getNote() != null ? userDetails.getNote() : null);
 
-                    String[] arrWeight = String.valueOf(weight.getWeight()).split("\\.");
-                    npWeightHead.setValue(Integer.parseInt(arrWeight[0]));
-                    npWeightTail.setValue(Integer.parseInt(arrWeight[1]));
+                    arrWeight = String.valueOf(userDetails.getWeight()).split("\\.");
 //                        displayToast(weight.toString());
+                } else {
+                    arrWeight = String.valueOf(userDetailsLastest.getWeight()).split("\\.");
                 }
+                npWeightHead.setValue(Integer.parseInt(arrWeight[0]));
+                npWeightTail.setValue(Integer.parseInt(arrWeight[1]));
             }
 
             @Override
@@ -128,12 +134,32 @@ public class WeightActivity extends AppCompatActivity implements View.OnClickLis
         view.setVisibility(View.VISIBLE);
     }
 
+    private Data getUserDetails() {
+        // get lastest user details
+        Data userDetails = new Data();
+        mDatabase.child("UserDetails").child(userID).orderByKey().limitToLast(1).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot iData : snapshot.getChildren()) {
+                    if (iData.getValue(Data.class) != null)
+                        userDetails.setData(Objects.requireNonNull(iData.getValue(Data.class)));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+        return userDetails;
+    }
+
     private void saveWeight() {
         int weightHead = npWeightHead.getValue();
         int weightTail = npWeightTail.getValue();
         float currentWeight = Float.valueOf(String.valueOf(weightHead) + "."  + String.valueOf(weightTail));
         String note = edtNote.getText().toString();
         String date = tvWeightDate.getText().toString();
+        Data userDetailsLastest = getUserDetails();
 
 //        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 //        String date = df.format(Calendar.getInstance().getTime());
@@ -142,8 +168,8 @@ public class WeightActivity extends AppCompatActivity implements View.OnClickLis
         DateFormat dfKey = new SimpleDateFormat("yyyyMMdd");
         String key = dfKey.format(Calendar.getInstance().getTime());
 
-        Weight weight = new Weight(currentWeight, date, note);
-        mDatabase.child("Weights").child(userID).child(key).setValue(weight).addOnCompleteListener(new OnCompleteListener<Void>() {
+        Data userDetails = new Data(userDetailsLastest.getHeight(), currentWeight, note, date);
+        mDatabase.child("UserDetails").child(userID).child(key).setValue(userDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
@@ -162,6 +188,46 @@ public class WeightActivity extends AppCompatActivity implements View.OnClickLis
 //            e.printStackTrace();
 //        }
     }
+
+//    private void saveBMI(Float weight, String date, String key) {
+//
+//        int height = Integer.parseInt(edtHeight.getText().toString().trim());
+//        float weight = Float.parseFloat(edtWeight.getText().toString().trim());
+//
+//        float value = weight/(((float) height/100)*((float) height/100));
+//        String status;
+//        if (value<18){
+//            status = "Thiếu cân";
+//        }else if (value<=25){
+//            status = "Bình thường";
+//        }else {
+//            status = "Thừa cân";
+//        }
+//
+//        BMI bmi = new BMI(value,status, date);
+//        mDatabase.child("BMIs").child(userID).child(key).setValue(bmi).addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Void> task) {
+//
+//            }
+//        });
+//    }
+
+//    private void getHeightUser() {
+//        mDatabase.child("Users").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                User userProfile = snapshot.getValue(User.class);
+//                if ()
+//                int height = userProfile.getHeight();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Log.w(TAG, "loadUser:onCancelled", error.toException());
+//            }
+//        });
+//    }
 
     public void displayToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
