@@ -121,7 +121,8 @@ public class WeightActivity extends AppCompatActivity implements View.OnClickLis
                 saveWeight();
                 break;
             case R.id.btnExit:
-                startActivity(new Intent(this, WeightStatisticActivity.class));
+                // startActivity(new Intent(this, WeightStatisticActivity.class));
+                finish();
                 break;
             default:
                 break;
@@ -170,7 +171,8 @@ public class WeightActivity extends AppCompatActivity implements View.OnClickLis
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
                                     // redirect to profile activity
-                                    startActivity(new Intent(WeightActivity.this, WeightStatisticActivity.class));
+                                    // startActivity(new Intent(WeightActivity.this, WeightStatisticActivity.class));
+                                    finish();
                                 } else {
                                     displayToast("Cập nhật không thành công!");
                                 }

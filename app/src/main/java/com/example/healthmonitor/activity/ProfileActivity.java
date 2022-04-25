@@ -285,7 +285,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 if (task.isSuccessful()) {
                     saveUserDetails(height, weight, "", currentDate, key);
                     // redirect to profile activity
-                    startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+//                    startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+                    finish();
                 } else {
                     displayToast("Cập nhật không thành công! Hãy kiểm tra lại thông tin!");
                 }
