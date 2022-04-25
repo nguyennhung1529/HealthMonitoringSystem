@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         float valueBMI = weight / (((float) userDetailsLastest.getHeight() / 100) * ((float) userDetailsLastest.getHeight() / 100));
                         String statusBMI = (valueBMI < 18) ? "Thiếu cân" : ((valueBMI <= 25) ? "Bình thường" : "Thừa cân");
 
-                        tvWeightValue.setText(String.valueOf((int) weight));
+                        tvWeightValue.setText(String.valueOf(Math.round(weight)));
                         tvBmiValue.setText(String.valueOf(Math.round(valueBMI)));
                         tvBmiStatus.setText(statusBMI);
                     }

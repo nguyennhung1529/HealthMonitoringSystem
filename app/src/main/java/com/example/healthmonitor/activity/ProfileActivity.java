@@ -140,50 +140,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_profile:
-                startActivity(new Intent(this, MainActivity.class));
-                return true;
-            case R.id.action_home:
-                startActivity(new Intent(this, HomeActivity.class));
-                return true;
-            case R.id.action_logout:
-                AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(ProfileActivity.this);
-                myAlertBuilder.setTitle("Thông báo!");
-                myAlertBuilder.setMessage("Bạn có chắc chắn muốn đăng xuất khỏi hệ thống?");
-                myAlertBuilder.setPositiveButton("OK", (dialog, which) -> {
-                    FirebaseAuth.getInstance().signOut();
-                    startActivity(new Intent(this, LoginActivity.class));
-                    finishAffinity();
-                });
-                myAlertBuilder.setNegativeButton("Cancel", null);
-
-                myAlertBuilder.show();
-                return true;
-            case R.id.action_post:
-                startActivity(new Intent(this, PostActivity.class));
-                break;
-            default:
-                // Do nothing
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.tvSkip:
-                startActivity(new Intent(this, HomeActivity.class));
-                break;
             case R.id.btnUpdateProfile:
                 updateProfileUser();
+                break;
+            default:
                 break;
         }
     }
@@ -285,7 +247,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 if (task.isSuccessful()) {
                     saveUserDetails(height, weight, "", currentDate, key);
                     // redirect to profile activity
-                    startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+//                    startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+                    finish();
                 } else {
                     displayToast("Cập nhật không thành công! Hãy kiểm tra lại thông tin!");
                 }

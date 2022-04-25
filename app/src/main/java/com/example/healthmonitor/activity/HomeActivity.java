@@ -1,5 +1,6 @@
 package com.example.healthmonitor.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,8 +10,18 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.healthmonitor.R;
+import com.example.healthmonitor.object.Data;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class HomeActivity extends AppCompatActivity {
+    private DatabaseReference mDatabase;
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +32,25 @@ public class HomeActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        mDatabase.child("UserDetails").child(userID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                System.out.println(!snapshot.exists());
+                if(!snapshot.exists()) {
+                    startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
+                    finishAffinity();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 
