@@ -38,7 +38,7 @@ public class HomeActivity extends AppCompatActivity {
                 System.out.println(!snapshot.exists());
                 if(!snapshot.exists()) {
                     startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
-                    finishAffinity();
+//                    finishAffinity();
                 }
             }
 
